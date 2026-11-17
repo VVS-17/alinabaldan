@@ -213,6 +213,12 @@ body.corp .hero .season span{color:#e5b8bc}
 .quote .who{margin-top:26px;font-size:12px;letter-spacing:.2em;color:var(--wine);text-transform:uppercase}
 /* ---------- approach ---------- */
 .approach .cols{display:flex;flex-direction:column;gap:44px}
+.approach .col-l img,.learn .imgcol img{width:100%;aspect-ratio:4/5;object-fit:cover}
+@media(min-width:900px){
+  .approach .col-l{flex:0 0 400px}
+  .learn .imgcol{flex:0 0 400px}
+  .learn .txt{flex:1}
+}
 .points{border-top:1px solid var(--line)}
 .points li{
   list-style:none;display:flex;gap:22px;padding:22px 0;
@@ -455,6 +461,7 @@ h2.sec{font-size:44px}
       <a href="#stories">Истории</a>
       <a href="#menu">Прайс</a>
       <a href="#approach">Подход</a>
+      <a href="#learn">Обучение</a>
       <a href="#faq">Вопросы</a>
       <a href="#contacts">Контакты</a>
     </nav>
@@ -469,6 +476,7 @@ h2.sec{font-size:44px}
   <a href="#stories">Истории</a>
   <a href="#menu">Прайс</a>
   <a href="#approach">Подход</a>
+  <a href="#learn">Обучение</a>
   <a href="#faq">Вопросы</a>
   <a href="#contacts">Контакты</a>
   <a class="tg" href="https://t.me/alina_baldan" target="_blank" rel="noopener">Написать в Telegram ↗</a>
@@ -541,8 +549,7 @@ h2.sec{font-size:44px}
 <!-- 5. APPROACH -->
 <section class="approach" id="approach">
   <div class="wrap cols">
-    <!-- ПОРТРЕТ АЛИНЫ: положить файл assets/portrait.jpg и вставить сюда
-         <div class="col-l"><img src="assets/portrait.jpg" alt="Алина Baldan — рилсмейкер" style="height:100%;object-fit:cover"></div> -->
+    <div class="col-l"><img src="assets/portrait.jpg" alt="Алина Балдан — свадебный рилсмейкер, портрет на винном фоне" loading="lazy"></div>
     <div class="col-r">
       <span class="label">Подход</span>
       <h2 class="sec">Деликатно, <em style="font-style:normal;color:var(--wine)">без дублей</em></h2>
@@ -676,9 +683,29 @@ h2.sec{font-size:44px}
       <div class="ocard">
         <h3>Wedding Content Lab</h3>
         <p>Курс для начинающих свадебных рилсмейкеров, онлайн и очно в Петербурге. Сейчас в разработке — напишите, расскажу о программе первой.</p>
-        <a class="link" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A0%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%20Wedding%20Content%20Lab" target="_blank" rel="noopener" style="margin-top:16px">Узнать программу ↗</a>
+        <a class="link" href="#learn" style="margin-top:16px">Узнать программу ↗</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 10b. LEARN -->
+<section class="approach learn" id="learn">
+  <div class="wrap cols">
+    <div class="txt">
+      <span class="label">Обучение</span>
+      <h2 class="sec">Wedding Content Lab</h2>
+      <p class="lead" style="margin-top:22px;max-width:560px">Курс для начинающих свадебных рилсмейкеров — от первого кадра до первых клиентов. Онлайн и очно в Петербурге.</p>
+      <ul class="points" style="margin-top:36px">
+        <li><span class="n">01</span><p>Съёмка на iPhone: свет, ракурсы, движение камеры.</p></li>
+        <li><span class="n">02</span><p>Монтаж Reels: ритм, титры, музыка, обложки.</p></li>
+        <li><span class="n">03</span><p>Работа с парой в день съёмки: как не мешать и ловить моменты.</p></li>
+        <li><span class="n">04</span><p>Упаковка и продажи: портфолио, прайс, первые заказы.</p></li>
+      </ul>
+      <p class="bigline">Программа в разработке — напишите, расскажу первой</p>
+      <a class="link" href="#contacts" data-type="Курс" style="margin-top:26px">Хочу в список ожидания ↗</a>
+    </div>
+    <div class="imgcol"><img src="assets/at-work.jpg" alt="Алина Балдан снимает свадьбу на телефон — закулисье работы" loading="lazy"></div>
   </div>
 </section>
 
