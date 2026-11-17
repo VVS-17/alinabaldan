@@ -4,6 +4,7 @@
 ФАЙЛЫ
   index.html    — главная страница (свадебная)
   pro.html      — страница для специалистов и организаторов
+  learn.html    — обучение «Wedding Content Lab» (тёмная, «за кадром»)
   privacy.html  — политика конфиденциальности
   404.html      — фирменная страница ошибки
   .htaccess     — привязка 404.html (Apache)
@@ -23,6 +24,7 @@
   После выкладки проверить:
    - https://alinabaldan.ru открывается, видео первого экрана играет
    - https://alinabaldan.ru/pro.html открывается
+   - https://alinabaldan.ru/learn.html открывается (тёмная страница обучения)
    - https://alinabaldan.ru/?e=corp показывает тёмный
      корпоративный первый экран
    - https://alinabaldan.ru/privacy.html открывается
