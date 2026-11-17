@@ -56,15 +56,16 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 /* ---------- sky (скролл = один день свадьбы) ---------- */
-.sky{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+.sky{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.8s ease;pointer-events:none}
 .sky.on{opacity:1}
-.sky-0{background:linear-gradient(180deg,#f9efe8 0%,#f5f0ef 55%,#eee3dd 100%)}
-.sky-1{background:linear-gradient(180deg,#f5f0ef 0%,#f2eae4 100%)}
-.sky-2{background:linear-gradient(180deg,#f7e3cd 0%,#f2d2b3 50%,#ecc6a6 100%)}
-.sky-3{background:linear-gradient(180deg,#ecd1cb 0%,#dfb7b0 55%,#d2a09a 100%)}
+.sky-0{background:linear-gradient(180deg,#f8ede7 0%,#f6eee9 55%,#f2e8e2 100%)}
+.sky-1{background:linear-gradient(180deg,#f5f0ef 0%,#f3ebe6 100%)}
+.sky-2{background:linear-gradient(180deg,#f7ebdb 0%,#f1dbc6 50%,#ecd2ba 100%)}
+.sky-3{background:linear-gradient(180deg,#efd9d3 0%,#e7c6bf 55%,#dfb2ac 100%)}
 .sky-4{background:radial-gradient(130% 90% at 50% 0%,#3a1419 0%,#241014 55%,#15090b 100%)}
-.clock{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);opacity:.78;margin-left:14px;vertical-align:2px}
-.clock::before{content:'· '}
+.scene{display:block;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);opacity:.8;margin-bottom:16px}
+.scene::before{content:'· '}
+.scene em{font-style:normal;opacity:.55}
 img,video{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,.serif{font-family:'Viaoda Libre',serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
@@ -103,6 +104,24 @@ header.scrolled{background:rgba(245,240,239,.98);box-shadow:0 24px 50px -42px rg
 }
 .hd nav a:hover{color:var(--wine)}
 .hd nav a:hover::after{transform:scaleX(1)}
+.hd nav a.active{color:var(--wine)}
+.hd nav a.active::after{transform:scaleX(1)}
+/* появление шапки после заставки */
+header.pre .brand,header.pre nav a,header.pre .cta-mini,header.pre .burger{opacity:0;transform:translateY(-12px)}
+header.ready .brand,header.ready nav a,header.ready .cta-mini,header.ready .burger{
+  opacity:1;transform:none;
+  transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);
+}
+header.ready .brand{transition-delay:.05s}
+header.ready nav a:nth-child(1){transition-delay:.14s}
+header.ready nav a:nth-child(2){transition-delay:.2s}
+header.ready nav a:nth-child(3){transition-delay:.26s}
+header.ready nav a:nth-child(4){transition-delay:.32s}
+header.ready nav a:nth-child(5){transition-delay:.38s}
+header.ready .cta-mini{transition-delay:.44s}
+header.ready .burger{transition-delay:.5s}
+.hd nav a{transition:color .3s ease,transform .3s ease}
+.hd nav a:hover{transform:translateY(-2px)}
 .hd .cta-mini{
   font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:var(--wine);border:1px solid var(--wine);background:transparent;text-decoration:none;
@@ -146,6 +165,7 @@ header.scrolled{background:rgba(245,240,239,.98);box-shadow:0 24px 50px -42px rg
 .mnav.open .mnav-links a:nth-child(5){transition-delay:.30s}
 .mnav.open .mnav-links a:nth-child(6){transition-delay:.36s}
 .mnav-links a:hover{color:#c0656e}
+.mnav-links a.active{color:#c0656e}
 .mnav-foot{margin-top:auto;padding-bottom:34px;display:flex;align-items:flex-end;justify-content:space-between}
 .mnav-foot .script{font-family:'Great Vibes',cursive;font-size:52px;color:#c0656e;line-height:1}
 .mnav-soc{display:flex;flex-direction:column;gap:8px;text-align:right}
@@ -166,8 +186,17 @@ header.scrolled{background:rgba(245,240,239,.98);box-shadow:0 24px 50px -42px rg
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   min-height:56px;padding:0 32px;font-size:16px;font-weight:500;
   background:var(--wine);color:var(--linen);text-decoration:none;border:none;cursor:pointer;
+  position:relative;overflow:hidden;isolation:isolate;
+  transition:background .35s,box-shadow .35s;
 }
-.btn:hover{background:var(--wine-deep)}
+.btn:hover{background:var(--wine-deep);box-shadow:0 18px 40px -18px var(--wine)}
+.btn::before{content:'';position:absolute;inset:0;border:1px solid var(--wine);pointer-events:none;
+  transform:scale(1);opacity:0;transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s}
+.btn:hover::before{transform:scale(1.14);opacity:.55}
+.btn::after{content:'';position:absolute;top:0;bottom:0;left:-70%;width:45%;
+  background:linear-gradient(100deg,transparent,rgba(245,240,239,.4),transparent);
+  transform:skewX(-20deg);transition:left .65s ease}
+.btn:hover::after{left:135%}
 .link{
   font-size:16px;text-decoration:none;border-bottom:1px solid var(--wine);
   padding-bottom:4px;color:var(--ink);display:inline-block;margin-top:18px;
@@ -320,12 +349,17 @@ body.corp .hero .season span{color:#e5b8bc}
 .important h3{font-size:28px;margin-bottom:14px}
 .important p{font-size:18px;line-height:1.5;max-width:640px}
 /* ---------- reviews ---------- */
-.revs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
-.rev{flex:0 0 82%;max-width:340px;scroll-snap-align:start;border-top:1px solid var(--line);padding-top:22px}
-.rev q{font-family:'Viaoda Libre',serif;font-size:24px;line-height:1.25;display:block;quotes:"«" "»"}
-.rev .who{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:16px;color:var(--mute)}
-.rev img{margin-top:18px;width:72%;aspect-ratio:4/5;object-fit:cover}
-.revs::-webkit-scrollbar{display:none}
+.revs{display:grid;grid-template-columns:1fr;gap:28px;margin-top:44px}
+.rev{display:flex;flex-direction:column;border:1px solid var(--line);background:rgba(245,240,239,.55);backdrop-filter:blur(6px);overflow:hidden}
+.rev-photo{position:relative;margin:0;overflow:hidden}
+.rev-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.rev:hover .rev-photo img{transform:scale(1.045)}
+.rev-photo::after{content:'';position:absolute;inset:0;border:1px solid rgba(122,26,36,.18);pointer-events:none}
+.rp-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;background:linear-gradient(180deg,transparent,rgba(42,14,18,.55));color:var(--linen);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.rev q{font-family:'Viaoda Libre',serif;font-size:25px;line-height:1.3;display:block;padding:26px 26px 0;color:var(--ink);quotes:none}
+.rev q::before{content:'«';color:var(--wine)}
+.rev q::after{content:'»';color:var(--wine)}
+.rev .who{font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:20px 26px 26px;color:var(--mute);border-top:1px solid var(--line);padding-top:16px}
 /* ---------- business ---------- */
 .biz .cols{display:flex;flex-direction:column;gap:36px}
 .bizlist{list-style:none;border-top:1px solid var(--line)}
@@ -408,7 +442,7 @@ body[data-sky="night"] .form-trust{color:#b3a3a0}
 body[data-sky="night"] .form-err{color:#e08a93}
 body[data-sky="night"] footer{color:#b3a3a0;border-top-color:rgba(245,240,239,.18)}
 body[data-sky="night"] footer a{color:#b3a3a0;border-bottom-color:rgba(245,240,239,.2)}
-body[data-sky="night"] .clock{color:#c0656e}
+body[data-sky="night"] .scene{color:#c0656e}
 @media(prefers-reduced-motion:reduce){.sky{transition:none}}
 /* ---------- desktop ---------- */
 @media(min-width:900px){
@@ -435,7 +469,7 @@ body[data-sky="night"] .clock{color:#c0656e}
   .hero .sub{font-size:22px}
   h2.sec{font-size:80px;line-height:1.02}
   .quote p{font-size:60px}
-  .approach .cols{flex-direction:row;gap:70px}
+  .approach .cols{flex-direction:row;gap:70px;align-items:center}
   .approach .col-r{flex:1}
   .points p{font-size:22px}
   .bigline{font-size:36px}
@@ -528,6 +562,7 @@ h2.sec{font-size:44px}
   var el=document.getElementById('lens'),seen=false;
   try{seen=sessionStorage.getItem('lensSeen')}catch(e){}
   var skip=seen||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__lensSkip=skip;
   if(skip){el.remove();return;}
   var iris=el.querySelector('.iris');
   requestAnimationFrame(function(){
@@ -545,16 +580,15 @@ h2.sec{font-size:44px}
   });
 })();
 </script>
-<header>
+<header class="pre">
   <div class="wrap hd">
     <a href="#top" class="brand" aria-label="BALDAN — на главную"><img class="logo" src="assets/logo.png" alt="BALDAN — Alina Baldan, рилсмейкер"></a>
     <nav>
-      <a href="#stories">Истории</a>
-      <a href="#menu">Прайс</a>
-      <a href="#approach">Подход</a>
+      <a href="#top" class="active">Свадьба</a>
+      <a href="prazdniki.html">Праздники</a>
+      <a href="corp.html">Компаниям</a>
+      <a href="pro.html">Специалистам</a>
       <a href="learn.html">Обучение</a>
-      <a href="#faq">Вопросы</a>
-      <a href="#contacts">Контакты</a>
     </nav>
     <div style="display:flex;gap:12px;align-items:center">
       <a class="cta-mini" href="#contacts"><span class="cta-full">Забронировать дату</span><span class="cta-short">Дата</span><span class="ar">→</span></a>
@@ -568,12 +602,11 @@ h2.sec{font-size:44px}
     <button class="close" id="mclose">Закрыть ✕</button>
   </div>
   <nav class="mnav-links">
-    <a href="#stories">Истории</a>
-    <a href="#menu">Прайс</a>
-    <a href="#approach">Подход</a>
+    <a href="#top" class="active">Свадьба</a>
+    <a href="prazdniki.html">Праздники</a>
+    <a href="corp.html">Компаниям</a>
+    <a href="pro.html">Специалистам</a>
     <a href="learn.html">Обучение</a>
-    <a href="#faq">Вопросы</a>
-    <a href="#contacts">Контакты</a>
   </nav>
   <div class="mnav-foot">
     <span class="script">Baldan</span>
@@ -589,13 +622,14 @@ h2.sec{font-size:44px}
 <section class="hero" id="top" data-sky="morning">
   <div class="wrap cols">
     <div class="hero-txt">
-      <span class="label">Рилсмейкер · Свадьбы, события и праздники · Петербург и Самара</span>
+      <span class="scene">утро — сборы невесты</span>
+      <span class="label">Рилсмейкер · Свадьбы · Петербург и Самара</span>
       <h1>Свадебный рилсмейкер<span class="script">Alina Baldan</span></h1>
       <p class="sub">Снимаю свадьбу так, как она ощущается — нежно, живо, без постановки. Это день-сказка, который хочется пересматривать снова и снова.</p>
       <p class="promise">Исходники — в день события.<br>Первый готовый ролик — в течение 24 часов.</p>
       <a class="btn" href="#contacts" id="hero-btn">Забронировать дату ↗</a><br>
       <!-- СЕЗОННАЯ СТРОКА: менять текст и ссылку раз в сезон -->
-      <a class="season" id="season" href="pro.html">Сейчас снимаю корпоративы и новогодние вечера <span>→ специалистам и организаторам</span></a>
+      <a class="season" id="season" href="corp.html">Сезон: корпоративы и новогодние вечера <span>→ компаниям</span></a>
       <a class="link" href="#stories">Смотреть истории ↓</a>
     </div>
     <div class="hero-vid">
@@ -614,7 +648,8 @@ h2.sec{font-size:44px}
 <!-- 3. STORIES -->
 <section id="stories" data-sky="day">
   <div class="wrap">
-    <span class="label">Портфолио</span><span class="clock">день</span>
+    <span class="scene">день — церемония и прогулка</span>
+    <span class="label">Портфолио</span>
     <h2 class="sec">Истории</h2>
     <div class="stories" style="margin-top:34px">
       <a class="story" href="#" data-story="0">
@@ -641,7 +676,7 @@ h2.sec{font-size:44px}
 <!-- 4. QUOTE -->
 <section class="quote" data-sky="day">
   <div class="wrap">
-    <span class="clock" style="display:block;text-align:center;margin:0 0 30px">полдень</span>
+    <span class="scene" style="text-align:center;margin:0 0 34px">полдень — тишина между кадрами</span>
     <p>«Свадьба — не самый лучший день вашей жизни, это день, с которого начинается нечто большее»</p>
     <div class="who">Alina Baldan</div>
   </div>
@@ -653,7 +688,8 @@ h2.sec{font-size:44px}
     <figure class="col-l"><img src="assets/portrait.jpg" alt="Алина Балдан — свадебный рилсмейкер, портрет на винном фоне" loading="lazy"><figcaption class="pcap">Алина Балдан · Петербург · свадебный рилсмейкер с 2023 года</figcaption></figure>
     <!-- ИСТОРИЯ АЛИНЫ: можно добавить 1–2 цепляющие строки под подписью или отдельным абзацем -->
     <div class="col-r">
-      <span class="label">Подход</span><span class="clock">день</span>
+      <span class="scene">день — деликатно рядом</span>
+      <span class="label">Подход</span>
       <h2 class="sec">Деликатно, <em style="font-style:normal;color:var(--wine)">без дублей</em></h2>
       <p class="lead" style="margin-top:24px;max-width:560px">Это не постановка на камеру. Я рядом и ловлю живое — вашу сказку, которую захочется запомнить навсегда.</p>
       <ul class="points" style="margin-top:36px">
@@ -674,9 +710,10 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 5b. DAY FLOW -->
-<section class="dayflow" data-sky="golden">
+<section class="dayflow" data-sky="day">
   <div class="wrap">
-    <span class="label">Как проходит</span><span class="clock">золотой час</span>
+    <span class="scene">день — ваш день со мной</span>
+    <span class="label">Как проходит</span>
     <h2 class="sec">Ваш день со мной</h2>
     <ul class="steps">
       <li><span class="n">01</span><p>Пишете дату — фиксируем её бронью 3 000 ₽ и подписываем договор.</p></li>
@@ -690,6 +727,7 @@ h2.sec{font-size:44px}
 <!-- 6. REELS MENU -->
 <section id="menu" data-sky="golden">
   <div class="wrap">
+    <span class="scene" style="text-align:center">золотой час — момент выбора</span>
     <div class="menu-card">
       <img class="lace-top" src="assets/lace-edge.webp" alt="" aria-hidden="true">
       <img class="lace-bot" src="assets/lace-edge.webp" alt="" aria-hidden="true">
@@ -713,64 +751,35 @@ h2.sec{font-size:44px}
 <!-- 7. REVIEWS -->
 <section id="reviews" data-sky="evening">
   <div class="wrap">
-    <span class="label">Отзывы</span><span class="clock">вечер</span>
+    <span class="scene">вечер — слова после праздника</span>
+    <span class="label">Отзывы</span>
     <h2 class="sec">Слова после праздника</h2>
-    <div class="revs" style="margin-top:40px">
+    <div class="revs">
       <figure class="rev">
+        <div class="rev-photo"><img src="assets/review-ilya-galya.jpg" alt="Илья и Галя под прозрачным зонтом у Исаакиевского собора" loading="lazy"><span class="rp-cap">свадьба · Петербург</span></div>
         <q>Ты смогла захватить самые трогательные моменты нашей свадьбы, я уже две недели пересматриваю видео и плачу. Рилс с медиками — просто огонь!</q>
         <figcaption class="who">Илья и Галя</figcaption>
-        <img src="assets/review-ilya-galya.jpg" alt="Илья и Галя под прозрачным зонтом у Исаакиевского собора" loading="lazy">
       </figure>
       <figure class="rev">
+        <div class="rev-photo"><img src="assets/review-dima-vika.jpg" alt="Дима и Вика у деревянной двери старинного дома" loading="lazy"><span class="rp-cap">свадьба · Петербург</span></div>
         <q>Спасибо, что смогла показать нас такими живыми, красивыми и любящими. Что ни видео, то шедевр!</q>
         <figcaption class="who">Дима и Вика</figcaption>
-        <img src="assets/review-dima-vika.jpg" alt="Дима и Вика у деревянной двери старинного дома" loading="lazy">
       </figure>
       <figure class="rev">
+        <div class="rev-photo"><img src="assets/review-nadya.jpg" alt="Объятия пары с букетом белых калл" loading="lazy"><span class="rp-cap">свадьба · Самара</span></div>
         <q>Ты запечатлела именно мои удачные ракурсы и моменты — у меня нет ни одного кадра, который я могла бы раскритиковать.</q>
         <figcaption class="who">Надя</figcaption>
-        <img src="assets/review-nadya.jpg" alt="Объятия пары с букетом белых калл" loading="lazy">
       </figure>
     </div>
   </div>
 </section>
 
-<!-- 8. BUSINESS -->
-<section class="biz" id="business" data-sky="evening">
-  <div class="wrap">
-    <span class="label">Для компаний</span><span class="clock">вечер</span>
-    <h2 class="sec">Ваш вечер — <em style="font-style:normal;color:var(--wine)">в ленте</em> на следующее утро</h2>
-    <div class="cols" style="margin-top:44px">
-      <div>
-        <ul class="bizlist">
-          <li>Вход и декор до прихода гостей</li>
-          <li>Приветствие и атмосфера вечера</li>
-          <li>Тосты и выступления руководителей с титрами</li>
-          <li>Награждение и команда</li>
-          <li>Танцпол и финал вечера</li>
-          <li>Итоговый рекап-ролик 30–60 секунд</li>
-        </ul>
-      </div>
-      <div>
-        <ul class="bizlist">
-          <li>Reels с титрами и в фирменных цветах</li>
-          <li>Ролики для LinkedIn, Telegram и VK</li>
-          <li>Все исходники в день события</li>
-          <li>Договор, чек самозанятой</li>
-          <li>Конфиденциальность и NDA по запросу</li>
-          <li>Консультация по таймингу вечера</li>
-        </ul>
-        <a class="link" href="#contacts" data-type="Корпоратив">Обсудить корпоратив ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9. FAQ -->
+<!-- 8. FAQ -->
 <section class="faq" id="faq" data-sky="evening">
   <div class="wrap cols">
     <div>
-      <span class="label">Вопросы</span><span class="clock">вечер</span>
+      <span class="scene">вечер — поговорим о деталях</span>
+      <span class="label">Вопросы</span>
       <h2 class="sec">Перед съёмкой</h2>
     </div>
     <div>
@@ -790,33 +799,12 @@ h2.sec{font-size:44px}
   </div>
 </section>
 
-<!-- 10. OTHER -->
-<section class="other" data-sky="evening">
-  <div class="wrap">
-    <span class="label">Другие направления</span><span class="clock">сумерки</span>
-    <h2 class="sec">Брендам и будущим авторам</h2>
-    <p class="lead" style="margin-top:22px;max-width:640px">Также снимаю дни рождения, юбилеи, гендер-пати, выписки и любые события, в основе которых — любовь.</p>
-    <div class="other-cards">
-      <div class="ocard">
-        <h3>Съёмка для брендов и заведений</h3>
-        <p>Фактура продукта, руки мастера, атмосфера места, съёмка корпоратива, видео для соцсетей компании. А для организаторов, ведущих и мастеров — контент для портфолио: закулисье и работа в кадре.</p>
-        <a class="link" href="#contacts" data-type="Бренд" style="margin-top:16px">Запросить условия ↗</a>
-        <a class="link" href="pro.html" style="margin-top:14px">Специалистам и организаторам — контент для витрины ↗</a>
-      </div>
-      <div class="ocard">
-        <h3>Wedding Content Lab</h3>
-        <p>Курс для начинающих свадебных рилсмейкеров, онлайн и очно в Петербурге. Сейчас в разработке — напишите, расскажу о программе первой.</p>
-        <a class="link" href="learn.html" style="margin-top:16px">Узнать программу ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 11. CONTACTS -->
+<!-- 9. CONTACTS -->
 <section class="contacts" id="contacts" data-sky="night">
   <img class="lace-edge" src="assets/lace-edge.webp" alt="" aria-hidden="true">
   <div class="wrap inner">
-    <span class="label">Контакты</span><span class="clock">ночь</span>
+    <span class="scene">ночь — забронировать дату</span>
+    <span class="label">Контакты</span>
     <h2 class="sec">Забронируем вашу дату?</h2>
     <p class="lead" style="margin-top:22px;max-width:560px">Расскажите о своём дне — помогу выбрать формат, который сохранит его таким, каким вы его чувствуете. Отвечаю в течение пары часов.</p>
     <a class="tg-big" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D0%BD%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%2C%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B0%D1%82%D0%B0%20%E2%80%94" target="_blank" rel="noopener">Написать в Telegram ↗</a>
@@ -828,11 +816,6 @@ h2.sec{font-size:44px}
       <div class="fld"><label for="f-name">Имя</label><input id="f-name" type="text" autocomplete="name"></div>
       <div class="fld"><label for="f-tg">Telegram или телефон</label><input id="f-tg" type="text" autocomplete="tel"></div>
       <div class="fld"><label for="f-date">Дата и город</label><input id="f-date" type="text" placeholder="Например, 12 июня, Петербург"></div>
-      <div class="fld"><label>Тип события</label>
-        <div class="types" id="types">
-          <button type="button" class="on">Свадьба</button><button type="button">Праздник</button><button type="button">Корпоратив</button><button type="button">Бренд</button><button type="button">Курс</button>
-        </div>
-      </div>
       <div class="fld"><label for="f-msg">Пара слов о дне (необязательно)</label><textarea id="f-msg" rows="3"></textarea></div>
       <label class="consent"><input type="checkbox" id="f-ok"><span>Соглашаюсь с <a href="privacy.html" style="color:inherit;border-bottom:1px solid var(--line)">политикой конфиденциальности</a></span></label>
       <p class="form-err" id="ferr">Заполните имя и контакт и отметьте согласие — так я смогу вам ответить.</p>
@@ -861,22 +844,13 @@ h2.sec{font-size:44px}
 
 <script>
 if(location.search.includes('flat'))document.querySelector('.hero').style.minHeight='auto';
-// corp variant ?e=corp
-if(location.search.includes('e=corp')){
-  document.body.classList.add('corp');
-  document.title='Рилсмейкер на корпоратив — Alina Baldan, Петербург и Самара';
-  document.querySelector('.hero .label').textContent='Рилсмейкер · Корпоративы · Петербург и Самара';
-  document.querySelector('.hero h1').innerHTML='Рилсмейкер<span class="script">на ваш корпоратив</span>';
-  document.querySelector('.hero .sub').textContent='Живой контент с новогоднего вечера, юбилея компании или запуска — вертикальные ролики для LinkedIn и Telegram. Первый готовый ролик — в течение 24 часов.';
-  document.getElementById('hero-btn').textContent='Обсудить корпоратив ↗';
-  document.getElementById('season').innerHTML='Декабрьские даты разбирают быстро — напишите заранее <span>→</span>';
-  document.getElementById('season').href='#contacts';
-  const st=document.getElementById('stories'),bz=document.getElementById('business');
-  st.parentNode.insertBefore(bz,st.nextSibling);
-}
-
-// header scrolled state
+// header: появление после заставки
 const hd=document.querySelector('header');
+(function(){
+  if(!hd)return;
+  const reveal=()=>{hd.classList.remove('pre');hd.classList.add('ready');};
+  if(window.__lensSkip){reveal();}else{setTimeout(reveal,3400);}
+})();
 const onScroll=()=>hd.classList.toggle('scrolled',window.scrollY>30);
 onScroll();addEventListener('scroll',onScroll,{passive:true});
 
@@ -907,23 +881,6 @@ mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'
 // floating cta: hide near contacts
 const fl=document.getElementById('float'), ct=document.getElementById('contacts');
 new IntersectionObserver(e=>{fl.style.display=e[0].isIntersecting?'none':''},{threshold:.05}).observe(ct);
-// type pills
-let curType=location.search.includes('e=corp')?'Корпоратив':'Свадьба';
-document.querySelectorAll('#types button').forEach(b=>{
-  b.classList.toggle('on',b.textContent===curType);
-  b.onclick=()=>{
-    document.querySelectorAll('#types button').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on');curType=b.textContent;
-  };
-});
-// data-type links preselect
-document.querySelectorAll('[data-type]').forEach(a=>a.addEventListener('click',()=>{
-  const t=a.dataset.type;
-  document.querySelectorAll('#types button').forEach(b=>{
-    b.classList.toggle('on',b.textContent===t);if(b.textContent===t)curType=t;
-  });
-}));
-
 // story videos: play only when visible
 (function(){
   const vids=document.querySelectorAll('.story video');
@@ -990,7 +947,7 @@ document.getElementById('inq').addEventListener('submit',e=>{
   const v=id=>document.getElementById(id).value.trim();
   const ok=document.getElementById('f-ok').checked;
   if(!v('f-name')||!v('f-tg')||!ok){document.getElementById('ferr').style.display='block';return;}
-  const msg=`Здравствуйте, Алина! Меня зовут ${v('f-name')}.\nСобытие: ${curType}${v('f-date')?', '+v('f-date'):''}.\nМой контакт: ${v('f-tg')}.${v('f-msg')?'\n'+v('f-msg'):''}`;
+  const msg=`Здравствуйте, Алина! Меня зовут ${v('f-name')}.\nСобытие: свадьба${v('f-date')?', '+v('f-date'):''}.\nМой контакт: ${v('f-tg')}.${v('f-msg')?'\n'+v('f-msg'):''}`;
   window.open('https://t.me/alina_baldan?text='+encodeURIComponent(msg),'_blank');
 });
 </script>

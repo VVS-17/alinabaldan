@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рилсмейкер на праздник — Alina Baldan, Петербург и Самара</title>
+<meta name="description" content="Съёмка дней рождения, юбилеев, гендер-пати и семейных событий на iPhone: живые Reels, исходники в день события, первый ролик — в течение 24 часов.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alinabaldan.ru/prazdniki.html">
+<link rel="canonical" href="https://alinabaldan.ru/prazdniki.html">
+<meta property="og:title" content="Alina Baldan — рилсмейкер на праздники">
+<meta property="og:description" content="Дни рождения, юбилеи, гендер-пати — живые ролики, которые захочется пересматривать. Первый Reels — в течение 24 часов.">
+<meta property="og:image" content="https://alinabaldan.ru/assets/og.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Alina Baldan — свадебный рилсмейкер",
+  "image":"https://alinabaldan.ru/assets/og.jpg",
+  "url":"https://alinabaldan.ru/",
+  "description":"Съёмка свадеб и событий на iPhone: исходники в день события, первый Reels в течение 24 часов. Договор, чек самозанятой.",
+  "priceRange":"от 7000 ₽/час",
+  "areaServed":[{"@type":"City","name":"Санкт-Петербург"},{"@type":"City","name":"Самара"}],
+  "sameAs":["https://t.me/alina_baldan","https://www.instagram.com/alinabaldan/"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Manrope:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#f5f0ef;
+  --wine:#7a1a24;
+  --wine-deep:#4c1017;
+  --dark:#2a0e12;
+  --ink:#1f1a1a;
+  --mute:#6f6560;
+  --line:rgba(122,26,36,.28);
+  --pad:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+html{background:var(--linen)}
+body{
+  font-family:'Manrope',sans-serif;
+  background:transparent;
+  color:var(--ink);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* ---------- sky (скролл = один день свадьбы) ---------- */
+.sky{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.8s ease;pointer-events:none}
+.sky.on{opacity:1}
+.sky-0{background:linear-gradient(180deg,#f8ede7 0%,#f6eee9 55%,#f2e8e2 100%)}
+.sky-1{background:linear-gradient(180deg,#f5f0ef 0%,#f3ebe6 100%)}
+.sky-2{background:linear-gradient(180deg,#f7ebdb 0%,#f1dbc6 50%,#ecd2ba 100%)}
+.sky-3{background:linear-gradient(180deg,#efd9d3 0%,#e7c6bf 55%,#dfb2ac 100%)}
+.sky-4{background:radial-gradient(130% 90% at 50% 0%,#3a1419 0%,#241014 55%,#15090b 100%)}
+.scene{display:block;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);opacity:.8;margin-bottom:16px}
+.scene::before{content:'· '}
+.scene em{font-style:normal;opacity:.55}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Viaoda Libre',serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
+h1,h2.sec{text-wrap:balance}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section{padding:96px 0}
+.label{
+  font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--wine);display:block;margin-bottom:18px;
+}
+.lead{font-size:18px;line-height:1.5;color:var(--ink)}
+.mute{color:var(--mute)}
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(245,240,239,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:background .4s ease,box-shadow .4s ease;
+}
+header.scrolled{background:rgba(245,240,239,.98);box-shadow:0 24px 50px -42px rgba(42,14,18,.55)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+.hd .brand{display:inline-flex;align-items:center;text-decoration:none;flex:none}
+.hd img.logo{height:36px;width:auto;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.hd .brand:hover img.logo{transform:translateY(-2px)}
+.hd nav{display:none;gap:2px}
+.hd nav a{
+  position:relative;font-family:'Viaoda Libre',serif;font-size:20px;line-height:1;
+  letter-spacing:.03em;color:var(--ink);text-decoration:none;
+  padding:12px 13px;transition:color .3s ease;
+}
+.hd nav a::after{
+  content:'';position:absolute;left:13px;right:13px;bottom:7px;height:1px;
+  background:var(--wine);transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.hd nav a:hover{color:var(--wine)}
+.hd nav a:hover::after{transform:scaleX(1)}
+.hd nav a.active{color:var(--wine)}
+.hd nav a.active::after{transform:scaleX(1)}
+/* появление шапки после заставки */
+header.pre .brand,header.pre nav a,header.pre .cta-mini,header.pre .burger{opacity:0;transform:translateY(-12px)}
+header.ready .brand,header.ready nav a,header.ready .cta-mini,header.ready .burger{
+  opacity:1;transform:none;
+  transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);
+}
+header.ready .brand{transition-delay:.05s}
+header.ready nav a:nth-child(1){transition-delay:.14s}
+header.ready nav a:nth-child(2){transition-delay:.2s}
+header.ready nav a:nth-child(3){transition-delay:.26s}
+header.ready nav a:nth-child(4){transition-delay:.32s}
+header.ready nav a:nth-child(5){transition-delay:.38s}
+header.ready .cta-mini{transition-delay:.44s}
+header.ready .burger{transition-delay:.5s}
+.hd nav a{transition:color .3s ease,transform .3s ease}
+.hd nav a:hover{transform:translateY(-2px)}
+.hd .cta-mini{
+  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--wine);border:1px solid var(--wine);background:transparent;text-decoration:none;
+  padding:14px 20px;display:inline-flex;align-items:center;gap:9px;min-height:46px;
+  white-space:nowrap;transition:color .35s,background .35s,box-shadow .35s;flex:none;
+}
+.hd .cta-mini .ar{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.hd .cta-mini:hover{color:var(--linen);background:var(--wine);box-shadow:0 18px 34px -20px var(--wine)}
+.hd .cta-mini:hover .ar{transform:translateX(5px)}
+.hd .cta-mini .cta-short{display:inline}
+.hd .cta-mini .cta-full{display:none}
+.burger{
+  display:inline-flex;flex-direction:column;justify-content:center;gap:6px;
+  width:46px;height:46px;border:1px solid var(--line);background:none;cursor:pointer;
+  align-items:center;transition:border-color .3s;
+}
+.burger:hover{border-color:var(--wine)}
+.burger span{display:block;width:20px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s}
+.mnav{
+  position:fixed;inset:0;z-index:70;
+  background:radial-gradient(130% 100% at 50% 0%,#3a1419 0%,#1c0d10 60%,#14090b 100%);
+  display:flex;flex-direction:column;padding:0 28px;
+  transform:translateY(-100%);transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.mnav.open{transform:none}
+.mnav-top{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+.mnav-top img{height:30px}
+.mnav .close{font-size:12px;letter-spacing:.2em;text-transform:uppercase;background:none;border:1px solid rgba(245,240,239,.25);color:var(--linen);cursor:pointer;padding:12px 18px;transition:.3s}
+.mnav .close:hover{border-color:var(--linen);background:rgba(245,240,239,.08)}
+.mnav-links{display:flex;flex-direction:column;margin-top:6vh}
+.mnav-links a{
+  font-family:'Viaoda Libre',serif;font-size:clamp(34px,8vw,44px);line-height:1.1;color:var(--linen);
+  text-decoration:none;padding:10px 0;border-bottom:1px solid rgba(245,240,239,.14);
+  opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s,color .3s;
+}
+.mnav.open .mnav-links a{opacity:1;transform:none}
+.mnav.open .mnav-links a:nth-child(1){transition-delay:.06s}
+.mnav.open .mnav-links a:nth-child(2){transition-delay:.12s}
+.mnav.open .mnav-links a:nth-child(3){transition-delay:.18s}
+.mnav.open .mnav-links a:nth-child(4){transition-delay:.24s}
+.mnav.open .mnav-links a:nth-child(5){transition-delay:.30s}
+.mnav.open .mnav-links a:nth-child(6){transition-delay:.36s}
+.mnav-links a:hover{color:#c0656e}
+.mnav-links a.active{color:#c0656e}
+.mnav-foot{margin-top:auto;padding-bottom:34px;display:flex;align-items:flex-end;justify-content:space-between}
+.mnav-foot .script{font-family:'Great Vibes',cursive;font-size:52px;color:#c0656e;line-height:1}
+.mnav-soc{display:flex;flex-direction:column;gap:8px;text-align:right}
+.mnav-soc a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);text-decoration:none;transition:color .3s}
+.mnav-soc a:hover{color:var(--linen)}
+/* ---------- hero ---------- */
+.hero{padding:120px 0 80px;min-height:100dvh;display:flex;align-items:center}
+.hero .cols{display:flex;flex-direction:column-reverse;gap:44px}
+.hero-txt{max-width:560px}
+.hero h1{font-size:48px;margin:14px 0 18px}
+.hero h1 .script{display:block;font-size:44px;color:var(--wine);margin-top:6px}
+.hero .sub{font-size:18px;line-height:1.5;margin-bottom:14px}
+.promise{
+  font-size:16px;line-height:1.55;border-left:1px solid var(--wine);
+  padding-left:16px;margin:26px 0 30px;color:var(--ink);
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:56px;padding:0 32px;font-size:16px;font-weight:500;
+  background:var(--wine);color:var(--linen);text-decoration:none;border:none;cursor:pointer;
+  position:relative;overflow:hidden;isolation:isolate;
+  transition:background .35s,box-shadow .35s;
+}
+.btn:hover{background:var(--wine-deep);box-shadow:0 18px 40px -18px var(--wine)}
+.btn::before{content:'';position:absolute;inset:0;border:1px solid var(--wine);pointer-events:none;
+  transform:scale(1);opacity:0;transition:transform .55s cubic-bezier(.22,1,.36,1),opacity .55s}
+.btn:hover::before{transform:scale(1.14);opacity:.55}
+.btn::after{content:'';position:absolute;top:0;bottom:0;left:-70%;width:45%;
+  background:linear-gradient(100deg,transparent,rgba(245,240,239,.4),transparent);
+  transform:skewX(-20deg);transition:left .65s ease}
+.btn:hover::after{left:135%}
+.link{
+  font-size:16px;text-decoration:none;border-bottom:1px solid var(--wine);
+  padding-bottom:4px;color:var(--ink);display:inline-block;margin-top:18px;
+}
+.hero-vid{position:relative;margin:0 auto;width:min(78vw,340px)}
+.hero-vid .frame{position:relative}
+.hero-vid video{width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--dark)}
+.season{
+  display:block;margin-top:26px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-size:15px;color:var(--ink);text-decoration:none;max-width:440px;
+}
+.season span{color:var(--wine)}
+/* corp variant */
+body.corp .hero{background:var(--dark);color:var(--linen)}
+body.corp .hero .label{color:#d8a8ad}
+body.corp .hero .sub{color:#e9ddde}
+body.corp .hero .promise{color:#e9ddde}
+body.corp .hero .link{color:var(--linen)}
+body.corp .hero-vid{display:none}
+body.corp header{background:rgba(245,240,239,.92)}
+body.corp .hero .btn{background:var(--linen);color:var(--dark)}
+body.corp .hero .btn:hover{background:#fff}
+body.corp .hero h1 .script{color:#e5b8bc}
+body.corp .hero .season{color:#e9ddde;border-color:var(--dline)}
+body.corp .hero .season span{color:#e5b8bc}
+.hero-vid .lace{position:absolute;top:-42px;left:-42px;width:62%;pointer-events:none;z-index:2}
+.hero-vid .lace.br{top:auto;left:auto;bottom:-42px;right:-42px;transform:rotate(180deg)}
+.vf{position:absolute;width:26px;height:26px;pointer-events:none;z-index:3;opacity:.85}
+.vf.tl{top:-10px;left:-10px;border-top:1.5px solid var(--wine);border-left:1.5px solid var(--wine)}
+.vf.tr{top:-10px;right:-10px;border-top:1.5px solid var(--wine);border-right:1.5px solid var(--wine)}
+.vf.bl{bottom:-10px;left:-10px;border-bottom:1.5px solid var(--wine);border-left:1.5px solid var(--wine)}
+.vf.brr{bottom:-10px;right:-10px;border-bottom:1.5px solid var(--wine);border-right:1.5px solid var(--wine)}
+/* lens intro */
+#lens{position:fixed;inset:0;z-index:200;pointer-events:none}
+#lens .iris{
+  position:absolute;left:50%;top:50%;width:86px;height:86px;border-radius:50%;
+  transform:translate(-50%,-50%) scale(0);
+  box-shadow:
+    0 0 0 1px rgba(245,240,239,.85),
+    0 0 70px 20px rgba(245,240,239,.5),
+    inset 0 0 30px rgba(245,240,239,.55),
+    0 0 0 5000px var(--dark);
+  opacity:0;transition:opacity .5s;
+}
+#lens .iris::before{
+  content:'';position:absolute;inset:-10px;border-radius:50%;
+  border:1px solid rgba(245,240,239,.3);
+}
+#lens.gone{opacity:0;transition:opacity .55s}
+#lens.gone .iris{opacity:0}
+/* ---------- stories ---------- */
+.filters{display:flex;gap:22px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:26px 0 34px;flex-wrap:wrap}
+.filters button{background:none;border:none;font:inherit;color:var(--mute);cursor:pointer;padding:6px 0;letter-spacing:inherit;text-transform:inherit}
+.filters button.on{color:var(--ink);border-bottom:1px solid var(--wine)}
+.stories{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.story{flex:0 0 68%;max-width:280px;scroll-snap-align:start;text-decoration:none}
+.story .ph{position:relative;background:var(--dark);aspect-ratio:9/16;overflow:hidden}
+.story .ph img,.story .ph video{width:100%;height:100%;object-fit:cover}
+.story .ph video{position:absolute;inset:0;transition:transform .8s ease}
+.story .ph::after{
+  content:'смотреть';position:absolute;left:50%;bottom:14px;transform:translateX(-50%);
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--linen);
+  padding:8px 14px;border:1px solid rgba(245,240,239,.6);background:rgba(42,14,18,.35);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.story:hover .ph video{transform:scale(1.045)}
+.story:hover .ph::after{opacity:1}
+.story figcaption{font-size:13px;color:var(--mute);margin-top:12px;letter-spacing:.04em}
+.stories::-webkit-scrollbar{display:none}
+/* ---------- stories player ---------- */
+#splay{
+  position:fixed;inset:0;z-index:300;background:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+#splay.open{opacity:1;pointer-events:auto}
+.sp-wrap{position:relative;height:min(92dvh,920px)}
+.sp-wrap video{height:100%;width:auto;aspect-ratio:9/16;object-fit:cover;background:#1a090c}
+.sp-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:5px;z-index:2}
+.sp-bars i{flex:1;height:2px;background:rgba(245,240,239,.3);overflow:hidden}
+.sp-bars i b{display:block;height:100%;background:var(--linen);transform:scaleX(0);transform-origin:left}
+.sp-close{
+  position:absolute;top:-46px;right:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(245,240,239,.75);background:none;border:none;cursor:pointer;padding:10px;font-family:'Manrope';
+}
+.sp-close:hover{color:var(--linen)}
+.sp-tap{position:absolute;top:0;bottom:0;width:34%;z-index:1;cursor:pointer;background:none;border:none;padding:0}
+.sp-tap.l{left:0}.sp-tap.r{right:0}
+/* ---------- quote ---------- */
+.quote{text-align:center;padding:120px 0}
+.quote p{font-family:'Viaoda Libre',serif;font-size:34px;line-height:1.2;max-width:760px;margin:0 auto}
+.quote .who{margin-top:26px;font-size:12px;letter-spacing:.2em;color:var(--wine);text-transform:uppercase}
+/* ---------- approach ---------- */
+.approach .cols{display:flex;flex-direction:column;gap:44px}
+.approach .col-l img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.pcap{font-size:13px;color:var(--mute);margin-top:14px;letter-spacing:.06em}
+.stats{display:flex;gap:38px;flex-wrap:wrap;margin-top:44px;border-top:1px solid var(--line);padding-top:26px}
+.stats .st b{font-family:'Viaoda Libre',serif;font-weight:400;font-size:42px;color:var(--wine);display:block;line-height:1;margin-bottom:6px}
+.stats .st span{font-size:13px;color:var(--mute);letter-spacing:.06em}
+.steps{border-top:1px solid var(--line);margin-top:40px}
+.steps li{list-style:none;display:flex;gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.steps .n{font-family:'Viaoda Libre',serif;font-size:26px;color:var(--wine);flex:0 0 44px}
+.steps p{font-size:18px;line-height:1.5}
+@media(min-width:1600px){
+  .stats .st b{font-size:48px}
+  .steps .n{font-size:30px}
+  .steps p{font-size:20px}
+}
+@media(min-width:900px){
+  .approach .col-l{flex:0 0 400px}
+}
+.points{border-top:1px solid var(--line)}
+.points li{
+  list-style:none;display:flex;gap:22px;padding:22px 0;
+  border-bottom:1px solid var(--line);align-items:baseline;
+}
+.points .n{font-family:'Viaoda Libre',serif;font-size:26px;color:var(--wine);flex:0 0 44px}
+.points p{font-size:18px;line-height:1.5}
+.bigline{font-family:'Viaoda Libre',serif;font-size:28px;line-height:1.2;margin-top:40px}
+.sign{font-family:'Great Vibes',cursive;font-size:30px;line-height:1.35;color:var(--wine);margin-top:20px}
+@media(min-width:900px){.sign{font-size:38px}}
+@media(min-width:1600px){.sign{font-size:44px}}
+/* ---------- menu ---------- */
+.menu-card{
+  position:relative;border:1px solid var(--line);padding:56px 22px 44px;
+  background:rgba(245,240,239,.72);backdrop-filter:blur(6px);
+}
+.menu-card .lace-top,.menu-card .lace-bot{position:absolute;left:0;right:0;height:110px;object-fit:cover;width:100%;pointer-events:none}
+.menu-card .lace-top{top:0;transform:scaleY(-1)}
+.menu-card .lace-bot{bottom:0}
+.menu-title{text-align:center;margin-bottom:36px}
+.menu-title .script{font-size:52px;color:var(--wine);line-height:1}
+.mgrp{margin:34px 0}
+.mgrp h3{font-size:13px;font-family:'Manrope';font-weight:500;letter-spacing:.16em;color:var(--wine);margin-bottom:14px}
+.mrow{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mrow .t{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.mrow .d{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.mrow .p{font-family:'Viaoda Libre',serif;font-size:30px;white-space:nowrap}
+.mlist{list-style:none}
+.mlist li{font-size:16px;line-height:1.55;padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--line)}
+.mlist li::before{content:"·";position:absolute;left:4px;color:var(--wine);font-weight:600}
+@media(max-width:899px){
+  .mrow{flex-direction:column;align-items:flex-start;gap:4px}
+  .mrow .d{display:none}
+  .mrow .p{font-size:26px}
+}
+.mnote{font-size:14px;color:var(--mute);padding:12px 0;line-height:1.55}
+.menu-card .btn{width:100%;margin-top:30px}
+.important{margin-top:44px}
+.important h3{font-size:28px;margin-bottom:14px}
+.important p{font-size:18px;line-height:1.5;max-width:640px}
+/* ---------- reviews ---------- */
+.revs{display:grid;grid-template-columns:1fr;gap:28px;margin-top:44px}
+.rev{display:flex;flex-direction:column;border:1px solid var(--line);background:rgba(245,240,239,.55);backdrop-filter:blur(6px);overflow:hidden}
+.rev-photo{position:relative;margin:0;overflow:hidden}
+.rev-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.rev:hover .rev-photo img{transform:scale(1.045)}
+.rev-photo::after{content:'';position:absolute;inset:0;border:1px solid rgba(122,26,36,.18);pointer-events:none}
+.rp-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 14px;background:linear-gradient(180deg,transparent,rgba(42,14,18,.55));color:var(--linen);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.rev q{font-family:'Viaoda Libre',serif;font-size:25px;line-height:1.3;display:block;padding:26px 26px 0;color:var(--ink);quotes:none}
+.rev q::before{content:'«';color:var(--wine)}
+.rev q::after{content:'»';color:var(--wine)}
+.rev .who{font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:20px 26px 26px;color:var(--mute);border-top:1px solid var(--line);padding-top:16px}
+/* ---------- business ---------- */
+.biz .cols{display:flex;flex-direction:column;gap:36px}
+.bizlist{list-style:none;border-top:1px solid var(--line)}
+.bizlist li{font-size:18px;line-height:1.5;padding:14px 0;border-bottom:1px solid var(--line)}
+/* ---------- faq ---------- */
+.faq .cols{display:flex;flex-direction:column;gap:36px}
+.fitem{border-bottom:1px solid var(--line)}
+.fitem summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;
+  font-size:17px;line-height:1.4;padding:20px 0;align-items:center;
+}
+.fitem summary::-webkit-details-marker{display:none}
+.fitem summary .pl{font-family:'Viaoda Libre',serif;font-size:24px;color:var(--wine);transition:transform .3s}
+.fitem[open] summary .pl{transform:rotate(45deg)}
+.fitem .fa{font-size:16px;color:var(--mute);padding:0 0 22px;max-width:640px;line-height:1.6}
+/* ---------- other ---------- */
+.other-cards{display:flex;flex-direction:column;gap:18px;margin-top:30px}
+.ocard{border:1px solid var(--line);padding:28px 24px}
+.ocard h3{font-size:26px;margin-bottom:12px}
+.ocard p{font-size:16px;color:var(--mute);line-height:1.55}
+/* ---------- contacts ---------- */
+.contacts{padding-top:0}
+.lace-edge{width:100%;height:120px;object-fit:cover;display:block}
+.contacts .inner{padding-top:70px}
+.tg-big{font-family:'Viaoda Libre',serif;font-size:26px;text-decoration:none;border-bottom:1px solid var(--wine);display:inline-block;margin:8px 0 20px;color:var(--wine)}
+.small-links{font-size:14px;color:var(--mute);margin-bottom:44px}
+.small-links a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
+form{display:flex;flex-direction:column;gap:22px;max-width:560px}
+.fld label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.fld input,.fld textarea{
+  width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;
+  font:inherit;font-size:17px;padding:10px 0;color:var(--ink);resize:vertical;
+}
+.fld input:focus,.fld textarea:focus{outline:none;border-bottom-color:var(--wine)}
+.types{display:flex;gap:10px;flex-wrap:wrap}
+.types button{
+  font:inherit;font-size:14px;padding:12px 20px;min-height:44px;
+  border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;
+}
+.types button.on{background:var(--wine);color:var(--linen)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mute);line-height:1.5}
+.consent input{width:20px;height:20px;accent-color:var(--wine);flex:0 0 20px;margin-top:2px}
+.form-note{font-size:14px;color:var(--mute)}
+.form-err{color:var(--wine);font-size:14px;display:none}
+.form-trust{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0 120px;font-size:14px;color:var(--mute)}
+footer .cols{display:flex;flex-direction:column;gap:14px}
+footer img{height:26px;width:auto}
+footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
+.fn{font-size:13px;max-width:520px}
+/* ---------- floating ---------- */
+.float-cta{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:40;
+  display:flex;justify-content:center;
+}
+.float-cta a{
+  background:var(--wine);color:var(--linen);text-decoration:none;font-size:15px;font-weight:500;
+  padding:0 26px;min-height:48px;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 6px 24px rgba(42,14,18,.25);
+}
+.contacts .sec,.contacts .lead,.contacts .label,.contacts .tg-big,.fld input,.fld textarea,.fld label,.contacts .small-links,.contacts .small-links a,.form-note,.form-trust,.consent,.types button,footer{transition:color 1.1s ease,border-color 1.1s ease,background-color 1.1s ease}
+/* ---------- ночь: контакты и футер ---------- */
+body[data-sky="night"] .contacts{color:var(--linen)}
+body[data-sky="night"] .contacts .sec,
+body[data-sky="night"] .contacts .lead{color:var(--linen)}
+body[data-sky="night"] .contacts .label{color:#c0656e}
+body[data-sky="night"] .contacts .lace-edge{opacity:.22}
+body[data-sky="night"] .contacts .tg-big{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .contacts .small-links,
+body[data-sky="night"] .contacts .small-links a{color:#b3a3a0}
+body[data-sky="night"] .fld input,
+body[data-sky="night"] .fld textarea{color:var(--linen);border-bottom-color:rgba(245,240,239,.3)}
+body[data-sky="night"] .fld label{color:#b3a3a0}
+body[data-sky="night"] .types button{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .types button.on{background:#c0656e;color:#1c0d10}
+body[data-sky="night"] .consent,
+body[data-sky="night"] .form-note,
+body[data-sky="night"] .form-trust{color:#b3a3a0}
+body[data-sky="night"] .form-err{color:#e08a93}
+body[data-sky="night"] footer{color:#b3a3a0;border-top-color:rgba(245,240,239,.18)}
+body[data-sky="night"] footer a{color:#b3a3a0;border-bottom-color:rgba(245,240,239,.2)}
+body[data-sky="night"] .scene{color:#c0656e}
+@media(prefers-reduced-motion:reduce){.sky{transition:none}}
+/* ---------- desktop ---------- */
+@media(min-width:900px){
+  body{font-size:17px}
+  section{padding:160px 0}
+  :root{--pad:80px}
+  .hd nav{display:flex}
+  .burger{display:none}
+  .hd{height:80px}
+  .hd img.logo{height:40px}
+  .hd nav{gap:4px}
+  .hd nav a{font-size:19px;padding:12px 12px}
+  .hd nav a::after{left:12px;right:12px}
+  .hd .cta-mini{font-size:12px;padding:15px 22px}
+  .hd .cta-mini .cta-short{display:none}
+  .hd .cta-mini .cta-full{display:inline}
+  .hero{padding:140px 0 0;min-height:100dvh}
+  .hero .cols{flex-direction:row;align-items:center;gap:60px}
+  .hero-txt{flex:1}
+  .hero-vid{flex:0 0 auto;width:auto;margin:0}
+  .hero-vid video{height:min(78dvh,760px);width:auto;aspect-ratio:9/16}
+  .hero h1{font-size:96px}
+  .hero h1 .script{font-size:72px}
+  .hero .sub{font-size:22px}
+  h2.sec{font-size:80px;line-height:1.02}
+  .quote p{font-size:60px}
+  .approach .cols{flex-direction:row;gap:70px;align-items:center}
+  .approach .col-r{flex:1}
+  .points p{font-size:22px}
+  .bigline{font-size:36px}
+  .stories{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;gap:24px}
+  .story{flex:none;max-width:none}
+  .menu-card{padding:90px 90px 70px}
+  .menu-title .script{font-size:72px}
+  .mrow .t{font-size:15px}
+  .mrow .p{font-size:40px}
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;gap:40px}
+  .rev{flex:none;max-width:none}
+  .rev q{font-size:30px}
+  .biz .cols,.faq .cols{flex-direction:row;gap:80px}
+  .biz .cols>*,.faq .cols>*{flex:1}
+  .fitem summary{font-size:20px}
+  .other-cards{flex-direction:row}
+  .ocard{flex:1;padding:36px 30px}
+  .tg-big{font-size:32px}
+  footer .cols{flex-direction:row;align-items:center;justify-content:space-between}
+  .float-cta{display:none}
+}
+@media(min-width:1600px){
+  .wrap{max-width:1440px}
+  body{font-size:18px}
+  .hd{height:88px}
+  .hd img.logo{height:46px}
+  .hd nav a{font-size:22px;padding:12px 15px}
+  .hd nav a::after{left:15px;right:15px}
+  .hd .cta-mini{font-size:13px;padding:17px 26px}
+  .label{font-size:13px}
+  .hero h1{font-size:114px}
+  .hero h1 .script{font-size:84px}
+  .hero .sub{font-size:24px;max-width:620px}
+  .promise{font-size:18px;max-width:560px}
+  .btn{font-size:18px;min-height:64px;padding:0 42px}
+  .season{font-size:17px;max-width:540px}
+  .link{font-size:18px}
+  h2.sec{font-size:92px}
+  .quote p{font-size:68px}
+  .lead{font-size:20px}
+  .points p{font-size:24px}
+  .bigline{font-size:42px}
+  .menu-title .script{font-size:84px}
+  .mrow .t{font-size:16px}
+  .mrow .p{font-size:44px}
+  .mnote{font-size:16px}
+  .rev q{font-size:34px}
+  .rev .who{font-size:14px}
+  .important h3{font-size:32px}
+  .important p{font-size:20px}
+  .bizlist li{font-size:20px}
+  .fitem summary{font-size:22px}
+  .fitem .fa{font-size:18px}
+  .ocard h3{font-size:30px}
+  .ocard p{font-size:18px}
+  .tg-big{font-size:38px}
+  .types button{font-size:16px;padding:14px 26px}
+  .fld label{font-size:13px}
+  .fld input,.fld textarea{font-size:19px}
+  .consent,.form-note,.small-links{font-size:15px}
+  footer{font-size:15px}
+  .fn{font-size:14px}
+}
+h2.sec{font-size:44px}
+/* gentle reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="sky sky-0 on"></div><div class="sky sky-1"></div><div class="sky sky-2"></div><div class="sky sky-3"></div><div class="sky sky-4"></div>
+<div id="lens"><div class="iris"></div></div>
+<div id="splay" aria-hidden="true">
+  <div class="sp-wrap">
+    <div class="sp-bars"></div>
+    <video muted playsinline></video>
+    <button class="sp-tap l" aria-label="Назад"></button>
+    <button class="sp-tap r" aria-label="Вперёд"></button>
+    <button class="sp-close">Закрыть ✕</button>
+  </div>
+</div>
+<script>
+// lens intro: skip on repeat visit or reduced motion
+(function(){
+  var el=document.getElementById('lens'),seen=false;
+  try{seen=sessionStorage.getItem('lensSeen')}catch(e){}
+  var skip=seen||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__lensSkip=skip;
+  if(skip){el.remove();return;}
+  var iris=el.querySelector('.iris');
+  requestAnimationFrame(function(){
+    iris.style.opacity=1;
+    var t0=performance.now(),D=2600;
+    function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+    function step(t){
+      var p=Math.min((t-t0)/D,1);
+      var s=.06+ease(p)*(Math.max(innerWidth,innerHeight)/86*1.7);
+      iris.style.transform='translate(-50%,-50%) scale('+s+')';
+      if(p<1)requestAnimationFrame(step);
+      else{el.classList.add('gone');try{sessionStorage.setItem('lensSeen','1')}catch(e){}setTimeout(function(){el.remove()},600);}
+    }
+    requestAnimationFrame(step);
+  });
+})();
+</script>
+<header class="pre">
+  <div class="wrap hd">
+    <a href="#top" class="brand" aria-label="BALDAN — на главную"><img class="logo" src="assets/logo.png" alt="BALDAN — Alina Baldan, рилсмейкер"></a>
+    <nav>
+      <a href="index.html">Свадьба</a>
+      <a href="prazdniki.html" class="active">Праздники</a>
+      <a href="corp.html">Компаниям</a>
+      <a href="pro.html">Специалистам</a>
+      <a href="learn.html">Обучение</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="cta-mini" href="#contacts"><span class="cta-full">Забронировать дату</span><span class="cta-short">Дата</span><span class="ar">→</span></a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <div class="mnav-top">
+    <img src="assets/logo-light.png" alt="BALDAN">
+    <button class="close" id="mclose">Закрыть ✕</button>
+  </div>
+  <nav class="mnav-links">
+    <a href="index.html">Свадьба</a>
+    <a href="prazdniki.html" class="active">Праздники</a>
+    <a href="corp.html">Компаниям</a>
+    <a href="pro.html">Специалистам</a>
+    <a href="learn.html">Обучение</a>
+  </nav>
+  <div class="mnav-foot">
+    <span class="script">Baldan</span>
+    <div class="mnav-soc">
+      <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://wa.me/79817532290" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Instagram*</a>
+    </div>
+  </div>
+</div>
+
+<!-- 2. HERO -->
+<section class="hero" id="top" data-sky="day">
+  <div class="wrap cols" style="justify-content:center;text-align:center">
+    <div class="hero-txt" style="max-width:760px;margin:0 auto">
+      <span class="scene">день — ваш праздник</span>
+      <span class="label">Рилсмейкер · Праздники и события · Петербург и Самара</span>
+      <h1>Рилсмейкер<span class="script">на ваш праздник</span></h1>
+      <p class="sub">Дни рождения, юбилеи, гендер-пати, выписки из роддома — живые вертикальные ролики, которые захочется пересматривать и отправлять близким.</p>
+      <p class="promise" style="border-left:none;padding-left:0">Исходники — в день события.<br>Первый ролик — в течение 24 часов.</p>
+      <a class="btn" href="#contacts" id="hero-btn">Обсудить праздник ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT -->
+<section data-sky="golden">
+  <div class="wrap">
+    <span class="scene">золотой час — эмоции</span>
+    <span class="label">Что снимаю</span>
+    <h2 class="sec">Праздник, в основе которого — <em style="font-style:normal;color:var(--wine)">любовь</em></h2>
+    <div class="cols" style="margin-top:44px">
+      <div>
+        <ul class="bizlist">
+          <li>Подготовка: декор, стол, детали до прихода гостей</li>
+          <li>Встреча гостей и объятия</li>
+          <li>Поздравления, тосты и первые слёзы</li>
+          <li>Торт, свечи и пожелания</li>
+          <li>Танцы и финал вечера</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bizlist">
+          <li>Вертикальные Reels для Instagram и Telegram</li>
+          <li>Титры и музыка под настроение</li>
+          <li>Все исходники в день события</li>
+          <li>Договор, чек самозанятой</li>
+          <li>Деликатно и без дублей</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRICE -->
+<section id="menu" data-sky="golden">
+  <div class="wrap">
+    <span class="scene" style="text-align:center">золотой час — момент выбора</span>
+    <div class="menu-card">
+      <img class="lace-top" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+      <img class="lace-bot" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+      <div class="menu-title"><span class="script">Reels menu</span></div>
+      <div class="mgrp">
+        <h3>Праздники</h3>
+        <div class="mrow"><span class="t">Съёмка праздника</span><span class="d"></span><span class="p">от 7 000 ₽/час</span></div>
+        <div class="mrow"><span class="t">Полный день, до 8 часов</span><span class="d"></span><span class="p">по запросу</span></div>
+        <div class="mrow"><span class="t">Бронь даты</span><span class="d"></span><span class="p">3 000 ₽</span></div>
+      </div>
+      <a class="btn" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D1%88%D0%BB%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA" target="_blank" rel="noopener">Обсудить праздник в Telegram ↗</a>
+      <p class="mnote" style="margin-top:14px">Полное меню — пакеты, что включено, сезонные условия — пришлю в личку.</p>
+    </div>
+    <div class="important">
+      <h3>Важные моменты</h3>
+      <p>Транспортные расходы — отдельно. Время в дороге входит в тайминг.<br>От 6 часов работы — горячее питание на площадке.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section class="faq" id="faq" data-sky="evening">
+  <div class="wrap cols">
+    <div>
+      <span class="scene">вечер — о деталях</span>
+      <span class="label">Вопросы</span>
+      <h2 class="sec">Перед праздником</h2>
+    </div>
+    <div>
+      <details class="fitem"><summary>Какие праздники снимаете?<span class="pl">+</span></summary><p class="fa">Дни рождения, юбилеи, гендер-пати, выписки из роддома, помолвки и любые события, где есть любовь и близкие.</p></details>
+      <details class="fitem"><summary>Сколько роликов получим?<span class="pl">+</span></summary><p class="fa">Зависит от часов: 3 часа — около 3 роликов, полный день — больше. Точное количество обсудим до съёмки.</p></details>
+      <details class="fitem"><summary>Когда будет готов материал?<span class="pl">+</span></summary><p class="fa">Исходники — в день события. Первый ролик — в течение 24 часов, остальные — до недели.</p></details>
+      <details class="fitem"><summary>Нужна ли подготовка от нас?<span class="pl">+</span></summary><p class="fa">Нет. Я тихо рядом и снимаю так, чтобы вам не пришлось «позировать». Достаточно просто быть в моменте.</p></details>
+      <details class="fitem"><summary>Как забронировать дату?<span class="pl">+</span></summary><p class="fa">Бронь — 3 000 ₽, по договору. В сезон — заранее.</p></details>
+      <details class="fitem"><summary>Выезжаете в другие города?<span class="pl">+</span></summary><p class="fa">Петербург и Самара — регулярно. Любой город и страна — по запросу, дорога оплачивается отдельно.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONTACTS -->
+<section class="contacts" id="contacts" data-sky="night">
+  <img class="lace-edge" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+  <div class="wrap inner">
+    <span class="scene">ночь — забронировать дату</span>
+    <span class="label">Контакты</span>
+    <h2 class="sec">Сохраним ваш праздник?</h2>
+    <p class="lead" style="margin-top:22px;max-width:560px">Расскажите о событии — помогу выбрать формат, который останется с вами навсегда. Отвечаю в течение пары часов.</p>
+    <a class="tg-big" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D0%BD%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D0%BA" target="_blank" rel="noopener">Написать в Telegram ↗</a>
+    <p class="small-links">
+      <a href="https://wa.me/79817532290" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Instagram*</a>
+    </p>
+    <form id="inq" novalidate>
+      <div class="fld"><label for="f-name">Имя</label><input id="f-name" type="text" autocomplete="name"></div>
+      <div class="fld"><label for="f-tg">Telegram или телефон</label><input id="f-tg" type="text" autocomplete="tel"></div>
+      <div class="fld"><label for="f-date">Дата и город</label><input id="f-date" type="text" placeholder="Например, 5 марта, Самара"></div>
+      <div class="fld"><label for="f-msg">О празднике (необязательно)</label><textarea id="f-msg" rows="3"></textarea></div>
+      <label class="consent"><input type="checkbox" id="f-ok"><span>Соглашаюсь с <a href="privacy.html" style="color:inherit;border-bottom:1px solid var(--line)">политикой конфиденциальности</a></span></label>
+      <p class="form-err" id="ferr">Заполните имя и контакт и отметьте согласие — так я смогу вам ответить.</p>
+      <button class="btn" type="submit">Написать Алине в Telegram ↗</button>
+      <p class="form-note">Откроется чат с готовым сообщением — останется нажать «Отправить».</p>
+      <p class="form-trust">Самозанятая · договор · чек · бронь даты 3 000 ₽</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <img src="assets/logo-light.png" alt="BALDAN">
+    <div>
+      <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a> ·
+      <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">@alinabaldan</a> ·
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+    <p class="fn">*Instagram принадлежит Meta, признанной экстремистской и запрещённой в РФ.</p>
+  </div>
+</footer>
+
+<!-- 13. FLOATING CTA -->
+<div class="float-cta" id="float"><a href="#contacts">Свободна ли моя дата?</a></div>
+
+<script>
+if(location.search.includes('flat'))document.querySelector('.hero').style.minHeight='auto';
+// header: появление после заставки
+const hd=document.querySelector('header');
+(function(){
+  if(!hd)return;
+  const reveal=()=>{hd.classList.remove('pre');hd.classList.add('ready');};
+  if(window.__lensSkip){reveal();}else{setTimeout(reveal,3400);}
+})();
+const onScroll=()=>hd.classList.toggle('scrolled',window.scrollY>30);
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+// sky: скролл = один день свадьбы
+(function(){
+  const secs=[...document.querySelectorAll('[data-sky]')];
+  const skyEls=[...document.querySelectorAll('.sky')];
+  const map={morning:0,day:1,golden:2,evening:3,night:4};
+  if(!secs.length)return;
+  function setSky(){
+    const mid=innerHeight*0.5;
+    let name='morning';
+    for(const s of secs){ if(s.getBoundingClientRect().top<=mid) name=s.dataset.sky; }
+    const idx=map[name]||0;
+    skyEls.forEach((e,i)=>e.classList.toggle('on',i===idx));
+    document.body.dataset.sky=name;
+  }
+  addEventListener('scroll',()=>requestAnimationFrame(setSky),{passive:true});
+  addEventListener('resize',setSky);
+  setSky();
+})();
+
+// mobile menu
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>mnav.classList.add('open');
+document.getElementById('mclose').onclick=()=>mnav.classList.remove('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+// floating cta: hide near contacts
+const fl=document.getElementById('float'), ct=document.getElementById('contacts');
+new IntersectionObserver(e=>{fl.style.display=e[0].isIntersecting?'none':''},{threshold:.05}).observe(ct);
+// story videos: play only when visible
+(function(){
+  const vids=document.querySelectorAll('.story video');
+  if(!('IntersectionObserver' in window)){vids.forEach(v=>v.play().catch(()=>{}));return;}
+  const vo=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';v.play().catch(()=>{});}
+    else v.pause();
+  }),{threshold:.2,rootMargin:'100px'});
+  vids.forEach(v=>vo.observe(v));
+})();
+// gentle reveal on scroll
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const els=document.querySelectorAll('h2.sec,.label,.lead,.points li,.rev,.fitem,.ocard,.prof,.pack,.steps li,.menu-card,.bizlist li,form,.quote p,.hero-txt>*');
+  els.forEach(el=>el.classList.add('rv'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+}
+// stories player (как в Stories)
+(function(){
+  const sp=document.getElementById('splay'),vid=sp.querySelector('video'),
+        bars=sp.querySelector('.sp-bars'),close=sp.querySelector('.sp-close');
+  const cards=[...document.querySelectorAll('.story[data-story]')];
+  const srcs=cards.map(c=>c.querySelector('video').getAttribute('src'));
+  let cur=0,raf=null,tX=0;
+  srcs.forEach(()=>{const i=document.createElement('i');i.appendChild(document.createElement('b'));bars.appendChild(i)});
+  const fills=[...bars.children];
+  function paint(){
+    fills.forEach((f,i)=>{
+      const p=i<cur?1:i>cur?0:(vid.duration?vid.currentTime/vid.duration:0);
+      f.firstElementChild.style.transform='scaleX('+p+')';
+    });
+    raf=requestAnimationFrame(paint);
+  }
+  function show(i){
+    cur=(i+srcs.length)%srcs.length;
+    vid.src=srcs[cur];vid.currentTime=0;vid.play().catch(()=>{});
+  }
+  function open(i){
+    sp.classList.add('open');sp.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';show(i);cancelAnimationFrame(raf);paint();
+  }
+  function hide(){
+    sp.classList.remove('open');sp.setAttribute('aria-hidden','true');
+    vid.pause();vid.removeAttribute('src');vid.load();
+    document.body.style.overflow='';cancelAnimationFrame(raf);
+    fills.forEach(f=>f.firstElementChild.style.transform='scaleX(0)');
+  }
+  cards.forEach((c,i)=>c.addEventListener('click',e=>{e.preventDefault();open(i)}));
+  sp.querySelector('.sp-tap.l').onclick=()=>show(cur-1);
+  sp.querySelector('.sp-tap.r').onclick=()=>show(cur+1);
+  close.onclick=hide;
+  vid.addEventListener('ended',()=>show(cur+1));
+  sp.addEventListener('touchstart',e=>tX=e.touches[0].clientX,{passive:true});
+  sp.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tX;
+    if(Math.abs(dx)>48){dx<0?show(cur+1):show(cur-1);}
+  },{passive:true});
+  document.addEventListener('keydown',e=>{if(sp.classList.contains('open')&&e.key==='Escape')hide();});
+})();
+// form -> telegram
+document.getElementById('inq').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const ok=document.getElementById('f-ok').checked;
+  if(!v('f-name')||!v('f-tg')||!ok){document.getElementById('ferr').style.display='block';return;}
+  const msg=`Здравствуйте, Алина! Меня зовут ${v('f-name')}.\nСобытие: праздник${v('f-date')?', '+v('f-date'):''}.\nМой контакт: ${v('f-tg')}.${v('f-msg')?'\n'+v('f-msg'):''}`;
+  window.open('https://t.me/alina_baldan?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body>
+</html>
