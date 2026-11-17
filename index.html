@@ -47,13 +47,24 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
+html{background:var(--linen)}
 body{
   font-family:'Manrope',sans-serif;
-  background:var(--linen);
+  background:transparent;
   color:var(--ink);
   font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
+/* ---------- sky (скролл = один день свадьбы) ---------- */
+.sky{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.4s ease;pointer-events:none}
+.sky.on{opacity:1}
+.sky-0{background:linear-gradient(180deg,#f9efe8 0%,#f5f0ef 55%,#eee3dd 100%)}
+.sky-1{background:linear-gradient(180deg,#f5f0ef 0%,#f2eae4 100%)}
+.sky-2{background:linear-gradient(180deg,#f7e3cd 0%,#f2d2b3 50%,#ecc6a6 100%)}
+.sky-3{background:linear-gradient(180deg,#ecd1cb 0%,#dfb7b0 55%,#d2a09a 100%)}
+.sky-4{background:radial-gradient(130% 90% at 50% 0%,#3a1419 0%,#241014 55%,#15090b 100%)}
+.clock{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);opacity:.78;margin-left:14px;vertical-align:2px}
+.clock::before{content:'· '}
 img,video{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,.serif{font-family:'Viaoda Libre',serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
@@ -278,7 +289,7 @@ body.corp .hero .season span{color:#e5b8bc}
 /* ---------- menu ---------- */
 .menu-card{
   position:relative;border:1px solid var(--line);padding:56px 22px 44px;
-  background:var(--linen);
+  background:rgba(245,240,239,.72);backdrop-filter:blur(6px);
 }
 .menu-card .lace-top,.menu-card .lace-bot{position:absolute;left:0;right:0;height:110px;object-fit:cover;width:100%;pointer-events:none}
 .menu-card .lace-top{top:0;transform:scaleY(-1)}
@@ -372,6 +383,28 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
   padding:0 26px;min-height:48px;display:inline-flex;align-items:center;gap:8px;
   box-shadow:0 6px 24px rgba(42,14,18,.25);
 }
+/* ---------- ночь: контакты и футер ---------- */
+body[data-sky="night"] .contacts{color:var(--linen)}
+body[data-sky="night"] .contacts .sec,
+body[data-sky="night"] .contacts .lead{color:var(--linen)}
+body[data-sky="night"] .contacts .label{color:#c0656e}
+body[data-sky="night"] .contacts .lace-edge{opacity:.22}
+body[data-sky="night"] .contacts .tg-big{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .contacts .small-links,
+body[data-sky="night"] .contacts .small-links a{color:#b3a3a0}
+body[data-sky="night"] .fld input,
+body[data-sky="night"] .fld textarea{color:var(--linen);border-bottom-color:rgba(245,240,239,.3)}
+body[data-sky="night"] .fld label{color:#b3a3a0}
+body[data-sky="night"] .types button{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .types button.on{background:#c0656e;color:#1c0d10}
+body[data-sky="night"] .consent,
+body[data-sky="night"] .form-note,
+body[data-sky="night"] .form-trust{color:#b3a3a0}
+body[data-sky="night"] .form-err{color:#e08a93}
+body[data-sky="night"] footer{color:#b3a3a0;border-top-color:rgba(245,240,239,.18)}
+body[data-sky="night"] footer a{color:#b3a3a0;border-bottom-color:rgba(245,240,239,.2)}
+body[data-sky="night"] .clock{color:#c0656e}
+@media(prefers-reduced-motion:reduce){.sky{transition:none}}
 /* ---------- desktop ---------- */
 @media(min-width:900px){
   body{font-size:17px}
@@ -473,6 +506,7 @@ h2.sec{font-size:44px}
 </style>
 </head>
 <body>
+<div class="sky sky-0 on"></div><div class="sky sky-1"></div><div class="sky sky-2"></div><div class="sky sky-3"></div><div class="sky sky-4"></div>
 <div id="lens"><div class="iris"></div></div>
 <div id="splay" aria-hidden="true">
   <div class="sp-wrap">
@@ -547,7 +581,7 @@ h2.sec{font-size:44px}
 </div>
 
 <!-- 2. HERO -->
-<section class="hero" id="top">
+<section class="hero" id="top" data-sky="morning">
   <div class="wrap cols">
     <div class="hero-txt">
       <span class="label">Рилсмейкер · Свадьбы, события и праздники · Петербург и Самара</span>
@@ -573,9 +607,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 3. STORIES -->
-<section id="stories">
+<section id="stories" data-sky="day">
   <div class="wrap">
-    <span class="label">Портфолио</span>
+    <span class="label">Портфолио</span><span class="clock">день</span>
     <h2 class="sec">Истории</h2>
     <div class="stories" style="margin-top:34px">
       <a class="story" href="#" data-story="0">
@@ -600,20 +634,21 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 4. QUOTE -->
-<section class="quote">
+<section class="quote" data-sky="day">
   <div class="wrap">
+    <span class="clock" style="display:block;text-align:center;margin:0 0 30px">полдень</span>
     <p>«Свадьба — не самый лучший день вашей жизни, это день, с которого начинается нечто большее»</p>
     <div class="who">Alina Baldan</div>
   </div>
 </section>
 
 <!-- 5. APPROACH -->
-<section class="approach" id="approach">
+<section class="approach" id="approach" data-sky="day">
   <div class="wrap cols">
     <figure class="col-l"><img src="assets/portrait.jpg" alt="Алина Балдан — свадебный рилсмейкер, портрет на винном фоне" loading="lazy"><figcaption class="pcap">Алина Балдан · Петербург · свадебный рилсмейкер с 2023 года</figcaption></figure>
     <!-- ИСТОРИЯ АЛИНЫ: можно добавить 1–2 цепляющие строки под подписью или отдельным абзацем -->
     <div class="col-r">
-      <span class="label">Подход</span>
+      <span class="label">Подход</span><span class="clock">день</span>
       <h2 class="sec">Деликатно, <em style="font-style:normal;color:var(--wine)">без дублей</em></h2>
       <ul class="points" style="margin-top:36px">
         <li><span class="n">01</span><p>Меня не заметно — снимаю тихо, не прошу повторять объятия.</p></li>
@@ -632,9 +667,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 5b. DAY FLOW -->
-<section class="dayflow">
+<section class="dayflow" data-sky="golden">
   <div class="wrap">
-    <span class="label">Как проходит</span>
+    <span class="label">Как проходит</span><span class="clock">золотой час</span>
     <h2 class="sec">Ваш день со мной</h2>
     <ul class="steps">
       <li><span class="n">01</span><p>Пишете дату — фиксируем её бронью 3 000 ₽ и подписываем договор.</p></li>
@@ -646,7 +681,7 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 6. REELS MENU -->
-<section id="menu">
+<section id="menu" data-sky="golden">
   <div class="wrap">
     <div class="menu-card">
       <img class="lace-top" src="assets/lace-edge.webp" alt="" aria-hidden="true">
@@ -669,9 +704,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 7. REVIEWS -->
-<section id="reviews">
+<section id="reviews" data-sky="evening">
   <div class="wrap">
-    <span class="label">Отзывы</span>
+    <span class="label">Отзывы</span><span class="clock">вечер</span>
     <h2 class="sec">Слова после праздника</h2>
     <div class="revs" style="margin-top:40px">
       <figure class="rev">
@@ -694,9 +729,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 8. BUSINESS -->
-<section class="biz" id="business">
+<section class="biz" id="business" data-sky="evening">
   <div class="wrap">
-    <span class="label">Для компаний</span>
+    <span class="label">Для компаний</span><span class="clock">вечер</span>
     <h2 class="sec">Ваш вечер — <em style="font-style:normal;color:var(--wine)">в ленте</em> на следующее утро</h2>
     <div class="cols" style="margin-top:44px">
       <div>
@@ -725,10 +760,10 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 9. FAQ -->
-<section class="faq" id="faq">
+<section class="faq" id="faq" data-sky="evening">
   <div class="wrap cols">
     <div>
-      <span class="label">Вопросы</span>
+      <span class="label">Вопросы</span><span class="clock">вечер</span>
       <h2 class="sec">Перед съёмкой</h2>
     </div>
     <div>
@@ -749,9 +784,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 10. OTHER -->
-<section class="other">
+<section class="other" data-sky="evening">
   <div class="wrap">
-    <span class="label">Другие направления</span>
+    <span class="label">Другие направления</span><span class="clock">сумерки</span>
     <h2 class="sec">Брендам и будущим авторам</h2>
     <p class="lead" style="margin-top:22px;max-width:640px">Также снимаю дни рождения, юбилеи, гендер-пати, выписки и любые события, в основе которых — любовь.</p>
     <div class="other-cards">
@@ -771,10 +806,10 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 11. CONTACTS -->
-<section class="contacts" id="contacts">
+<section class="contacts" id="contacts" data-sky="night">
   <img class="lace-edge" src="assets/lace-edge.webp" alt="" aria-hidden="true">
   <div class="wrap inner">
-    <span class="label">Контакты</span>
+    <span class="label">Контакты</span><span class="clock">ночь</span>
     <h2 class="sec">Забронируем вашу дату?</h2>
     <p class="lead" style="margin-top:22px;max-width:560px">Напишите дату и пару слов о событии — скажу, свободна ли дата, и помогу выбрать формат. Отвечаю в течение нескольких часов.</p>
     <a class="tg-big" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D0%BD%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%2C%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B0%D1%82%D0%B0%20%E2%80%94" target="_blank" rel="noopener">Написать в Telegram ↗</a>
@@ -804,7 +839,7 @@ h2.sec{font-size:44px}
 <!-- 12. FOOTER -->
 <footer>
   <div class="wrap cols">
-    <img src="assets/logo.png" alt="BALDAN">
+    <img src="assets/logo-light.png" alt="BALDAN">
     <div>
       <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a> ·
       <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">@alinabaldan</a> ·
@@ -837,6 +872,25 @@ if(location.search.includes('e=corp')){
 const hd=document.querySelector('header');
 const onScroll=()=>hd.classList.toggle('scrolled',window.scrollY>30);
 onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+// sky: скролл = один день свадьбы
+(function(){
+  const secs=[...document.querySelectorAll('[data-sky]')];
+  const skyEls=[...document.querySelectorAll('.sky')];
+  const map={morning:0,day:1,golden:2,evening:3,night:4};
+  if(!secs.length)return;
+  function setSky(){
+    const mid=innerHeight*0.5;
+    let name='morning';
+    for(const s of secs){ if(s.getBoundingClientRect().top<=mid) name=s.dataset.sky; }
+    const idx=map[name]||0;
+    skyEls.forEach((e,i)=>e.classList.toggle('on',i===idx));
+    document.body.dataset.sky=name;
+  }
+  addEventListener('scroll',()=>requestAnimationFrame(setSky),{passive:true});
+  addEventListener('resize',setSky);
+  setSky();
+})();
 
 // mobile menu
 const mnav=document.getElementById('mnav');
