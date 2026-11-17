@@ -17,10 +17,10 @@
 {
   "@context":"https://schema.org",
   "@type":"ProfessionalService",
-  "name":"Alina Baldan — свадебный рилсмейкер",
+  "name":"Alina Baldan — рилсмейкер на праздники",
   "image":"https://alinabaldan.ru/assets/og.jpg",
-  "url":"https://alinabaldan.ru/",
-  "description":"Съёмка свадеб и событий на iPhone: исходники в день события, первый Reels в течение 24 часов. Договор, чек самозанятой.",
+  "url":"https://alinabaldan.ru/prazdniki.html",
+  "description":"Съёмка дней рождения, юбилеев, gender-пати и семейных праздников на iPhone: исходники в день события, первый Reels в течение 24 часов.",
   "priceRange":"от 7000 ₽/час",
   "areaServed":[{"@type":"City","name":"Санкт-Петербург"},{"@type":"City","name":"Самара"}],
   "sameAs":["https://t.me/alina_baldan","https://www.instagram.com/alinabaldan/"]
@@ -404,7 +404,7 @@ form{display:flex;flex-direction:column;gap:22px;max-width:560px}
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:40px 0 120px;font-size:14px;color:var(--mute)}
 footer .cols{display:flex;flex-direction:column;gap:14px}
-footer img{height:26px;width:auto}
+footer img{height:44px;width:auto;opacity:.92;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
 footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
 .fn{font-size:13px;max-width:520px}
 /* ---------- floating ---------- */
@@ -628,6 +628,30 @@ h2.sec{font-size:44px}
   </div>
 </section>
 
+<!-- 2.5 PORTFOLIO -->
+<section id="stories" data-sky="day">
+  <div class="wrap">
+    <span class="scene">день — как это выглядит</span>
+    <span class="label">Портфолио</span>
+    <h2 class="sec">Фрагменты праздников</h2>
+    <div class="stories" style="margin-top:34px">
+      <a class="story" href="#" data-story="0">
+        <div class="ph"><video src="assets/story-party-1.mp4" poster="assets/story-party-1.jpg" muted loop playsinline preload="none" aria-label="Фрагмент праздника"></video></div>
+        <figcaption>Праздник · атмосфера</figcaption>
+      </a>
+      <a class="story" href="#" data-story="1">
+        <div class="ph"><video src="assets/story-party-2.mp4" poster="assets/story-party-2.jpg" muted loop playsinline preload="none" aria-label="Фрагмент праздника"></video></div>
+        <figcaption>Вечер · эмоции гостей</figcaption>
+      </a>
+      <a class="story" href="#" data-story="2">
+        <div class="ph"><video src="assets/story-party-3.mp4" poster="assets/story-party-3.jpg" muted loop playsinline preload="none" aria-label="Фрагмент праздника"></video></div>
+        <figcaption>Праздник · тёплый свет</figcaption>
+      </a>
+    </div>
+    <a class="link" href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Ещё работы — в Instagram* @alinabaldan ↗</a>
+  </div>
+</section>
+
 <!-- 3. WHAT -->
 <section data-sky="golden">
   <div class="wrap">
@@ -740,7 +764,7 @@ h2.sec{font-size:44px}
 </footer>
 
 <!-- 13. FLOATING CTA -->
-<div class="float-cta" id="float"><a href="#contacts">Свободна ли моя дата?</a></div>
+<div class="float-cta" id="float"><a href="#contacts">Свободна ли дата на праздник?</a></div>
 
 <script>
 if(location.search.includes('flat'))document.querySelector('.hero').style.minHeight='auto';

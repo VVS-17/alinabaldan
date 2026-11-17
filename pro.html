@@ -89,6 +89,30 @@ form{display:flex;flex-direction:column;gap:22px;max-width:560px;margin-top:34px
 .consent input{width:20px;height:20px;accent-color:var(--wine);flex:0 0 20px;margin-top:2px}
 .form-err{color:var(--wine);font-size:14px;display:none}
 .form-note{font-size:14px;color:var(--mute)}
+/* ---------- stories ---------- */
+.stories{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.story{flex:0 0 68%;max-width:280px;scroll-snap-align:start;text-decoration:none}
+.story .ph{position:relative;background:var(--dark);aspect-ratio:9/16;overflow:hidden}
+.story .ph img,.story .ph video{width:100%;height:100%;object-fit:cover}
+.story .ph video{position:absolute;inset:0;transition:transform .8s ease}
+.story .ph::after{content:'смотреть';position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--linen);padding:8px 14px;border:1px solid rgba(245,240,239,.6);background:rgba(42,14,18,.35);opacity:0;transition:opacity .35s;pointer-events:none}
+.story:hover .ph video{transform:scale(1.045)}
+.story:hover .ph::after{opacity:1}
+.story figcaption{font-size:13px;color:var(--mute);margin-top:12px;letter-spacing:.04em}
+.stories::-webkit-scrollbar{display:none}
+/* ---------- stories player ---------- */
+#splay{position:fixed;inset:0;z-index:300;background:var(--dark);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+#splay.open{opacity:1;pointer-events:auto}
+.sp-wrap{position:relative;height:min(92dvh,920px)}
+.sp-wrap video{height:100%;width:auto;aspect-ratio:9/16;object-fit:cover;background:#1a090c}
+.sp-bars{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:5px;z-index:2}
+.sp-bars i{flex:1;height:2px;background:rgba(245,240,239,.3);overflow:hidden}
+.sp-bars i b{display:block;height:100%;background:var(--linen);transform:scaleX(0);transform-origin:left}
+.sp-close{position:absolute;top:-46px;right:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,239,.75);background:none;border:none;cursor:pointer;padding:10px;font-family:'Manrope'}
+.sp-close:hover{color:var(--linen)}
+.sp-tap{position:absolute;top:0;bottom:0;width:34%;z-index:1;cursor:pointer;background:none;border:none;padding:0}
+.sp-tap.l{left:0}.sp-tap.r{right:0}
+
 footer{border-top:1px solid var(--line);padding:40px 0 60px;font-size:14px;color:var(--mute)}
 footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
 .float-cta{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;display:flex;justify-content:center}
@@ -104,6 +128,7 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
   .hero h1 .script{font-size:60px}
   .hero .sub{font-size:22px}
   h2.sec{font-size:72px}
+  .stories{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;gap:24px}
   .packs{flex-direction:row}
   .pack{flex:1;padding:34px 30px}
   .prof summary .t{font-size:24px}
@@ -143,9 +168,19 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
 </head>
 <body>
 
+<div id="splay" aria-hidden="true">
+  <div class="sp-wrap">
+    <div class="sp-bars"></div>
+    <video muted playsinline></video>
+    <button class="sp-tap l" aria-label="Назад"></button>
+    <button class="sp-tap r" aria-label="Вперёд"></button>
+    <button class="sp-close">Закрыть ✕</button>
+  </div>
+</div>
+
 <header>
   <div class="wrap hd">
-    <a href="index.html"><img class="logo" src="assets/logo.png" alt="BALDAN — на главную"></a>
+    <a href="index.html"><img class="logo" src="assets/logo-light.png" alt="BALDAN — на главную"></a>
     <div style="display:flex;gap:26px;align-items:center">
       <a class="back" href="index.html">← Свадьбы и праздники</a>
       <a class="cta-mini" href="#contacts">Обсудить съёмку</a>
@@ -177,6 +212,33 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
       <details class="prof"><summary><span class="t">Декораторам, флористам, кондитерам</span><span class="pl">+</span></summary><p class="pa">Фактура материалов, процесс сборки, готовая площадка до прихода гостей. Ролики «как это делается» — лучшее доказательство уровня.</p></details>
       <details class="prof"><summary><span class="t">Мастерам и специалистам (Profi.ru, Авито)</span><span class="pl">+</span></summary><p class="pa">Повар, бариста, мастер маникюра, столяр, электромонтер — процесс работы руками и результат. Живое портфолио вместо фото «до/после» — для профиля и соцсетей.</p></details>
       <details class="prof"><summary><span class="t">Экспертам</span><span class="pl">+</span></summary><p class="pa">Психологи, риелторы, тренеры: мини-интервью, ответы на вопросы клиентов, нарезки под ролики для регулярного контента.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="works">
+  <div class="wrap">
+    <span class="label">Портфолио</span>
+    <h2 class="sec">Как это выглядит</h2>
+    <p class="lead" style="max-width:560px">Живые фрагменты реальных съёмок: события, закулисье, детали — так будет выглядеть и ваш контент.</p>
+    <div class="stories" style="margin-top:34px">
+      <a class="story" href="#" data-story="0">
+        <div class="ph"><video src="assets/story-pro-1.mp4" poster="assets/story-pro-1.jpg" muted loop playsinline preload="none" aria-label="Пример съёмки для специалиста"></video></div>
+        <figcaption>Пример · рекап события</figcaption>
+      </a>
+      <a class="story" href="#" data-story="1">
+        <div class="ph"><video src="assets/story-pro-2.mp4" poster="assets/story-pro-2.jpg" muted loop playsinline preload="none" aria-label="Пример съёмки для специалиста"></video></div>
+        <figcaption>Пример · детали и фактура</figcaption>
+      </a>
+      <a class="story" href="#" data-story="2">
+        <div class="ph"><video src="assets/story-pro-3.mp4" poster="assets/story-pro-3.jpg" muted loop playsinline preload="none" aria-label="Пример съёмки для специалиста"></video></div>
+        <figcaption>Пример · атмосфера</figcaption>
+      </a>
+      <a class="story" href="#" data-story="3">
+        <div class="ph"><video src="assets/story-pro-4.mp4" poster="assets/story-pro-4.jpg" muted loop playsinline preload="none" aria-label="Пример съёмки для специалиста"></video></div>
+        <figcaption>Пример · репортаж</figcaption>
+      </a>
     </div>
   </div>
 </section>
@@ -248,7 +310,7 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
 
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;gap:14px">
-    <img src="assets/logo.png" alt="BALDAN" style="height:26px;width:auto">
+    <img src="assets/logo.png" alt="BALDAN" style="height:44px;width:auto">
     <div><a href="index.html">Свадьба</a> · <a href="prazdniki.html">Праздники</a> · <a href="corp.html">Компаниям</a> · <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a> · <a href="privacy.html">Политика конфиденциальности</a></div>
   </div>
 </footer>
@@ -265,6 +327,60 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
 }
 const fl=document.querySelector('.float-cta'),ct=document.getElementById('contacts');
 new IntersectionObserver(e=>{fl.style.display=e[0].isIntersecting?'none':''},{threshold:.05}).observe(ct);
+// story videos: play only when visible
+(function(){
+  const vids=document.querySelectorAll('.story video');
+  if(!('IntersectionObserver' in window)){vids.forEach(v=>v.play().catch(()=>{}));return;}
+  const vo=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';v.play().catch(()=>{});}
+    else v.pause();
+  }),{threshold:.2,rootMargin:'100px'});
+  vids.forEach(v=>vo.observe(v));
+})();
+// stories player (как в Stories)
+(function(){
+  const sp=document.getElementById('splay'),vid=sp.querySelector('video'),
+        bars=sp.querySelector('.sp-bars'),close=sp.querySelector('.sp-close');
+  const cards=[...document.querySelectorAll('.story[data-story]')];
+  if(!cards.length)return;
+  const srcs=cards.map(c=>c.querySelector('video').getAttribute('src'));
+  let cur=0,raf=null,tX=0;
+  srcs.forEach(()=>{const i=document.createElement('i');i.appendChild(document.createElement('b'));bars.appendChild(i)});
+  const fills=[...bars.children];
+  function paint(){
+    fills.forEach((f,i)=>{
+      const p=i<cur?1:i>cur?0:(vid.duration?vid.currentTime/vid.duration:0);
+      f.firstElementChild.style.transform='scaleX('+p+')';
+    });
+    raf=requestAnimationFrame(paint);
+  }
+  function show(i){
+    cur=(i+srcs.length)%srcs.length;
+    vid.src=srcs[cur];vid.currentTime=0;vid.play().catch(()=>{});
+  }
+  function open(i){
+    sp.classList.add('open');sp.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';show(i);cancelAnimationFrame(raf);paint();
+  }
+  function hide(){
+    sp.classList.remove('open');sp.setAttribute('aria-hidden','true');
+    vid.pause();vid.removeAttribute('src');vid.load();
+    document.body.style.overflow='';cancelAnimationFrame(raf);
+    fills.forEach(f=>f.firstElementChild.style.transform='scaleX(0)');
+  }
+  cards.forEach((c,i)=>c.addEventListener('click',e=>{e.preventDefault();open(i)}));
+  sp.querySelector('.sp-tap.l').onclick=()=>show(cur-1);
+  sp.querySelector('.sp-tap.r').onclick=()=>show(cur+1);
+  close.onclick=hide;
+  vid.addEventListener('ended',()=>show(cur+1));
+  sp.addEventListener('touchstart',e=>tX=e.touches[0].clientX,{passive:true});
+  sp.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tX;
+    if(Math.abs(dx)>48){dx<0?show(cur+1):show(cur-1);}
+  },{passive:true});
+  document.addEventListener('keydown',e=>{if(sp.classList.contains('open')&&e.key==='Escape')hide();});
+})();
 document.getElementById('inq').addEventListener('submit',e=>{
   e.preventDefault();
   const v=id=>document.getElementById(id).value.trim();

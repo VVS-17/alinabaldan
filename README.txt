@@ -25,10 +25,10 @@
 
   После выкладки проверить:
    - https://alinabaldan.ru открывается, видео первого экрана играет
+   - https://alinabaldan.ru/prazdniki.html открывается
+   - https://alinabaldan.ru/corp.html открывается
    - https://alinabaldan.ru/pro.html открывается
    - https://alinabaldan.ru/learn.html открывается (тёмная страница обучения)
-   - https://alinabaldan.ru/?e=corp показывает тёмный
-     корпоративный первый экран
    - https://alinabaldan.ru/privacy.html открывается
    - кнопки ведут в t.me/alina_baldan с готовым сообщением
 
@@ -40,8 +40,8 @@ DNS (в личном кабинете reg.ru)
    - HTTPS: включить бесплатный SSL (Let's Encrypt) в панели.
 
 ЧТО ЕЩЁ ПРЕДСТОИТ (не блокирует выкладку)
-   - assets/portrait.jpg — портрет Алины, место размечено в index.html
-     (искать "ПОРТРЕТ АЛИНЫ")
+   - Текст «Кто такая Алина» — короткая биография, место размечено
+     в index.html (искать "ИСТОРИЯ АЛИНЫ")
    - Яндекс.Метрика: вставить счётчик перед </body> в index.html
    - Сезонная строка в первом экране — менять текст раз в сезон
      (искать в index.html комментарий "СЕЗОННАЯ СТРОКА")
