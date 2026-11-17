@@ -43,8 +43,8 @@ section{padding:96px 0}
 h2.sec{font-size:44px}
 /* header */
 header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(42,14,18,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--dline)}
-.hd{display:flex;align-items:center;justify-content:space-between;height:64px}
-.hd img.logo{height:30px;filter:brightness(0) invert(92%)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:68px}
+.hd img.logo{height:34px;filter:brightness(0) invert(92%)}
 .hd .back{color:var(--linen);text-decoration:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
 .hd .cta-mini{font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--dark);background:var(--linen);text-decoration:none;padding:12px 22px;display:inline-flex;align-items:center;min-height:44px}
 /* hero — dark */
@@ -94,6 +94,10 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
 @media(min-width:900px){
   :root{--pad:80px}
   section{padding:140px 0}
+  .hd{height:76px}
+  .hd img.logo{height:38px}
+  .hd .back,.hd .cta-mini{font-size:15px}
+  .hd .cta-mini{padding:14px 26px}
   .hero h1{font-size:88px}
   .hero h1 .script{font-size:60px}
   .hero .sub{font-size:22px}
@@ -102,6 +106,33 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
   .pack{flex:1;padding:34px 30px}
   .prof summary .t{font-size:24px}
   .float-cta{display:none}
+}
+@media(min-width:1600px){
+  .wrap{max-width:1440px}
+  body{font-size:18px}
+  .hd{height:84px}
+  .hd img.logo{height:44px}
+  .hd .back,.hd .cta-mini{font-size:16px}
+  .hd .cta-mini{padding:16px 30px}
+  .label{font-size:13px}
+  .hero h1{font-size:104px}
+  .hero h1 .script{font-size:72px}
+  .hero .sub{font-size:24px;max-width:680px}
+  .hero .who span{font-size:16px;padding:11px 20px}
+  h2.sec{font-size:84px}
+  .prof summary .t{font-size:26px}
+  .prof .pa{font-size:18px;max-width:760px}
+  .pack{padding:38px 34px}
+  .pack h3{font-size:32px}
+  .pack .price{font-size:40px}
+  .pack p{font-size:18px}
+  .pack ul{font-size:16px}
+  .steps .n{font-size:30px}
+  .steps p{font-size:20px}
+  .fld label{font-size:13px}
+  .fld input,.fld textarea{font-size:19px}
+  .consent,.form-note{font-size:15px}
+  footer{font-size:15px}
 }
 .rv{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
 .rv.on{opacity:1;transform:none}
