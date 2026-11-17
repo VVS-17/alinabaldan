@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рилсмейкер Alina Baldan — свадьбы, события и праздники в Петербурге и Самаре</title>
+<meta name="description" content="Съёмка на iPhone: свадьбы, корпоративы, дни рождения. Исходники в день события, первый Reels — в течение 24 часов. Договор, бронь даты 3 000 ₽.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alinabaldan.ru/">
+<link rel="canonical" href="https://alinabaldan.ru/">
+<meta property="og:title" content="Alina Baldan — свадебный рилсмейкер">
+<meta property="og:description" content="Живой свадебный контент в Петербурге и Самаре. Исходники в день события, первый Reels — в течение 24 часов.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&family=Manrope:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#f5f0ef;
+  --wine:#7a1a24;
+  --wine-deep:#4c1017;
+  --dark:#2a0e12;
+  --ink:#1f1a1a;
+  --mute:#6f6560;
+  --line:rgba(122,26,36,.28);
+  --pad:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--linen);
+  color:var(--ink);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Viaoda Libre',serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section{padding:96px 0}
+.label{
+  font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--wine);display:block;margin-bottom:18px;
+}
+.lead{font-size:18px;line-height:1.5;color:var(--ink)}
+.mute{color:var(--mute)}
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(245,240,239,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px}
+.hd img.logo{height:30px;width:auto}
+.hd nav{display:none;gap:34px}
+.hd nav a{
+  font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;
+}
+.hd nav a:hover{color:var(--wine)}
+.hd .cta-mini{
+  font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--linen);background:var(--wine);text-decoration:none;
+  padding:12px 22px;display:inline-flex;align-items:center;min-height:44px;
+}
+.burger{
+  display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;border:1px solid var(--line);background:none;cursor:pointer;
+  align-items:center;
+}
+.burger span{display:block;width:18px;height:1.5px;background:var(--ink)}
+.mnav{
+  position:fixed;inset:0;z-index:60;background:var(--linen);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+  transform:translateY(-100%);transition:transform .45s ease;
+}
+.mnav.open{transform:none}
+.mnav a{
+  font-family:'Viaoda Libre',serif;font-size:34px;text-decoration:none;padding:10px;
+}
+.mnav .close{position:absolute;top:18px;right:20px;font-size:14px;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:14px;color:var(--mute)}
+.mnav .tg{font-family:'Manrope';font-size:16px;margin-top:26px;border-bottom:1px solid var(--wine);color:var(--wine)}
+/* ---------- hero ---------- */
+.hero{padding:120px 0 80px;min-height:100dvh;display:flex;align-items:center}
+.hero .cols{display:flex;flex-direction:column-reverse;gap:44px}
+.hero-txt{max-width:560px}
+.hero h1{font-size:48px;margin:14px 0 18px}
+.hero h1 .script{display:block;font-size:44px;color:var(--wine);margin-top:6px}
+.hero .sub{font-size:18px;line-height:1.5;margin-bottom:14px}
+.promise{
+  font-size:16px;line-height:1.55;border-left:1px solid var(--wine);
+  padding-left:16px;margin:26px 0 30px;color:var(--ink);
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:56px;padding:0 32px;font-size:16px;font-weight:500;
+  background:var(--wine);color:var(--linen);text-decoration:none;border:none;cursor:pointer;
+}
+.btn:hover{background:var(--wine-deep)}
+.link{
+  font-size:16px;text-decoration:none;border-bottom:1px solid var(--wine);
+  padding-bottom:4px;color:var(--ink);display:inline-block;margin-top:18px;
+}
+.hero-vid{position:relative;margin:0 auto;width:min(78vw,340px)}
+.hero-vid .frame{position:relative}
+.hero-vid video{width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--dark)}
+.season{
+  display:block;margin-top:26px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-size:15px;color:var(--ink);text-decoration:none;max-width:440px;
+}
+.season span{color:var(--wine)}
+/* corp variant */
+body.corp .hero{background:var(--dark);color:var(--linen)}
+body.corp .hero .label{color:#d8a8ad}
+body.corp .hero .sub{color:#e9ddde}
+body.corp .hero .promise{color:#e9ddde}
+body.corp .hero .link{color:var(--linen)}
+body.corp .hero-vid{display:none}
+body.corp header{background:rgba(245,240,239,.92)}
+body.corp .hero .btn{background:var(--linen);color:var(--dark)}
+body.corp .hero .btn:hover{background:#fff}
+body.corp .hero h1 .script{color:#e5b8bc}
+body.corp .hero .season{color:#e9ddde;border-color:var(--dline)}
+body.corp .hero .season span{color:#e5b8bc}
+.hero-vid .lace{position:absolute;top:-42px;left:-42px;width:62%;pointer-events:none;z-index:2}
+.hero-vid .lace.br{top:auto;left:auto;bottom:-42px;right:-42px;transform:rotate(180deg)}
+.vf{position:absolute;width:26px;height:26px;pointer-events:none;z-index:3;opacity:.85}
+.vf.tl{top:-10px;left:-10px;border-top:1.5px solid var(--wine);border-left:1.5px solid var(--wine)}
+.vf.tr{top:-10px;right:-10px;border-top:1.5px solid var(--wine);border-right:1.5px solid var(--wine)}
+.vf.bl{bottom:-10px;left:-10px;border-bottom:1.5px solid var(--wine);border-left:1.5px solid var(--wine)}
+.vf.brr{bottom:-10px;right:-10px;border-bottom:1.5px solid var(--wine);border-right:1.5px solid var(--wine)}
+/* lens intro */
+#lens{position:fixed;inset:0;z-index:200;pointer-events:none}
+#lens .iris{
+  position:absolute;left:50%;top:50%;width:80px;height:80px;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.12);
+  box-shadow:0 0 50px 12px rgba(245,240,239,.95),0 0 0 5000px var(--dark);
+  opacity:0;transition:opacity .5s;
+}
+#lens.gone .iris{transition:opacity .45s;opacity:0}
+/* ---------- stories ---------- */
+.filters{display:flex;gap:22px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:26px 0 34px;flex-wrap:wrap}
+.filters button{background:none;border:none;font:inherit;color:var(--mute);cursor:pointer;padding:6px 0;letter-spacing:inherit;text-transform:inherit}
+.filters button.on{color:var(--ink);border-bottom:1px solid var(--wine)}
+.stories{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.story{flex:0 0 68%;max-width:280px;scroll-snap-align:start;text-decoration:none}
+.story .ph{position:relative;background:var(--dark);aspect-ratio:9/16;overflow:hidden}
+.story .ph img,.story .ph video{width:100%;height:100%;object-fit:cover}
+.story .ph video{position:absolute;inset:0}
+.story figcaption{font-size:13px;color:var(--mute);margin-top:12px;letter-spacing:.04em}
+.stories::-webkit-scrollbar{display:none}
+/* ---------- quote ---------- */
+.quote{text-align:center;padding:120px 0}
+.quote p{font-family:'Viaoda Libre',serif;font-size:34px;line-height:1.2;max-width:760px;margin:0 auto}
+.quote .who{margin-top:26px;font-size:12px;letter-spacing:.2em;color:var(--wine);text-transform:uppercase}
+/* ---------- approach ---------- */
+.approach .cols{display:flex;flex-direction:column;gap:44px}
+.points{border-top:1px solid var(--line)}
+.points li{
+  list-style:none;display:flex;gap:22px;padding:22px 0;
+  border-bottom:1px solid var(--line);align-items:baseline;
+}
+.points .n{font-family:'Viaoda Libre',serif;font-size:26px;color:var(--wine);flex:0 0 44px}
+.points p{font-size:18px;line-height:1.5}
+.bigline{font-family:'Viaoda Libre',serif;font-size:28px;line-height:1.2;margin-top:40px}
+/* ---------- menu ---------- */
+.menu-card{
+  position:relative;border:1px solid var(--line);padding:56px 22px 44px;
+  background:var(--linen);
+}
+.menu-card .lace-top,.menu-card .lace-bot{position:absolute;left:0;right:0;height:110px;object-fit:cover;width:100%;pointer-events:none}
+.menu-card .lace-top{top:0;transform:scaleY(-1)}
+.menu-card .lace-bot{bottom:0}
+.menu-title{text-align:center;margin-bottom:36px}
+.menu-title .script{font-size:52px;color:var(--wine);line-height:1}
+.mgrp{margin:34px 0}
+.mgrp h3{font-size:13px;font-family:'Manrope';font-weight:500;letter-spacing:.16em;color:var(--wine);margin-bottom:14px}
+.mrow{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mrow .t{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.mrow .d{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.mrow .p{font-family:'Viaoda Libre',serif;font-size:30px;white-space:nowrap}
+.mlist{list-style:none}
+.mlist li{font-size:16px;line-height:1.55;padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--line)}
+.mlist li::before{content:"·";position:absolute;left:4px;color:var(--wine);font-weight:600}
+@media(max-width:899px){
+  .mrow{flex-direction:column;align-items:flex-start;gap:4px}
+  .mrow .d{display:none}
+  .mrow .p{font-size:26px}
+}
+.mnote{font-size:14px;color:var(--mute);padding:12px 0;line-height:1.55}
+.menu-card .btn{width:100%;margin-top:30px}
+.important{margin-top:44px}
+.important h3{font-size:28px;margin-bottom:14px}
+.important p{font-size:18px;line-height:1.5;max-width:640px}
+/* ---------- reviews ---------- */
+.revs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.rev{flex:0 0 82%;max-width:340px;scroll-snap-align:start;border-top:1px solid var(--line);padding-top:22px}
+.rev q{font-family:'Viaoda Libre',serif;font-size:24px;line-height:1.25;display:block;quotes:"«" "»"}
+.rev .who{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:16px;color:var(--mute)}
+.rev img{margin-top:18px;width:60%;aspect-ratio:4/5;object-fit:cover}
+.revs::-webkit-scrollbar{display:none}
+/* ---------- business ---------- */
+.biz .cols{display:flex;flex-direction:column;gap:36px}
+.bizlist{list-style:none;border-top:1px solid var(--line)}
+.bizlist li{font-size:18px;line-height:1.5;padding:14px 0;border-bottom:1px solid var(--line)}
+/* ---------- faq ---------- */
+.faq .cols{display:flex;flex-direction:column;gap:36px}
+.fitem{border-bottom:1px solid var(--line)}
+.fitem summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;
+  font-size:17px;line-height:1.4;padding:20px 0;align-items:center;
+}
+.fitem summary::-webkit-details-marker{display:none}
+.fitem summary .pl{font-family:'Viaoda Libre',serif;font-size:24px;color:var(--wine);transition:transform .3s}
+.fitem[open] summary .pl{transform:rotate(45deg)}
+.fitem .fa{font-size:16px;color:var(--mute);padding:0 0 22px;max-width:640px;line-height:1.6}
+/* ---------- other ---------- */
+.other-cards{display:flex;flex-direction:column;gap:18px;margin-top:30px}
+.ocard{border:1px solid var(--line);padding:28px 24px}
+.ocard h3{font-size:26px;margin-bottom:12px}
+.ocard p{font-size:16px;color:var(--mute);line-height:1.55}
+/* ---------- contacts ---------- */
+.contacts{padding-top:0}
+.lace-edge{width:100%;height:120px;object-fit:cover;display:block}
+.contacts .inner{padding-top:70px}
+.tg-big{font-family:'Viaoda Libre',serif;font-size:26px;text-decoration:none;border-bottom:1px solid var(--wine);display:inline-block;margin:8px 0 20px;color:var(--wine)}
+.small-links{font-size:14px;color:var(--mute);margin-bottom:44px}
+.small-links a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
+form{display:flex;flex-direction:column;gap:22px;max-width:560px}
+.fld label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.fld input,.fld textarea{
+  width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;
+  font:inherit;font-size:17px;padding:10px 0;color:var(--ink);resize:vertical;
+}
+.fld input:focus,.fld textarea:focus{outline:none;border-bottom-color:var(--wine)}
+.types{display:flex;gap:10px;flex-wrap:wrap}
+.types button{
+  font:inherit;font-size:14px;padding:12px 20px;min-height:44px;
+  border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;
+}
+.types button.on{background:var(--wine);color:var(--linen)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mute);line-height:1.5}
+.consent input{width:20px;height:20px;accent-color:var(--wine);flex:0 0 20px;margin-top:2px}
+.form-note{font-size:14px;color:var(--mute)}
+.form-err{color:var(--wine);font-size:14px;display:none}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0 120px;font-size:14px;color:var(--mute)}
+footer .cols{display:flex;flex-direction:column;gap:14px}
+footer img{height:26px;width:auto}
+footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
+.fn{font-size:13px;max-width:520px}
+/* ---------- floating ---------- */
+.float-cta{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:40;
+  display:flex;justify-content:center;
+}
+.float-cta a{
+  background:var(--wine);color:var(--linen);text-decoration:none;font-size:15px;font-weight:500;
+  padding:0 26px;min-height:48px;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 6px 24px rgba(42,14,18,.25);
+}
+/* ---------- desktop ---------- */
+@media(min-width:900px){
+  body{font-size:17px}
+  section{padding:160px 0}
+  :root{--pad:80px}
+  .hd nav{display:flex}
+  .burger{display:none}
+  .hero{padding:130px 0 0;min-height:100dvh}
+  .hero .cols{flex-direction:row;align-items:center;gap:60px}
+  .hero-txt{flex:1}
+  .hero-vid{flex:0 0 auto;width:auto;margin:0}
+  .hero-vid video{height:min(78dvh,760px);width:auto;aspect-ratio:9/16}
+  .hero h1{font-size:96px}
+  .hero h1 .script{font-size:72px}
+  .hero .sub{font-size:22px}
+  h2.sec{font-size:80px;line-height:1.02}
+  .quote p{font-size:60px}
+  .approach .cols{flex-direction:row;gap:70px}
+  .approach .col-r{flex:1}
+  .points p{font-size:22px}
+  .bigline{font-size:36px}
+  .stories{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;gap:24px}
+  .story{flex:none;max-width:none}
+  .menu-card{padding:90px 90px 70px}
+  .menu-title .script{font-size:72px}
+  .mrow .t{font-size:15px}
+  .mrow .p{font-size:40px}
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;gap:40px}
+  .rev{flex:none;max-width:none}
+  .rev q{font-size:30px}
+  .biz .cols,.faq .cols{flex-direction:row;gap:80px}
+  .biz .cols>*,.faq .cols>*{flex:1}
+  .fitem summary{font-size:20px}
+  .other-cards{flex-direction:row}
+  .ocard{flex:1;padding:36px 30px}
+  .tg-big{font-size:32px}
+  footer .cols{flex-direction:row;align-items:center;justify-content:space-between}
+  .float-cta{display:none}
+}
+h2.sec{font-size:44px}
+/* gentle reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div id="lens"><div class="iris"></div></div>
+<script>
+// lens intro: skip on repeat visit or reduced motion
+(function(){
+  var el=document.getElementById('lens'),seen=false;
+  try{seen=sessionStorage.getItem('lensSeen')}catch(e){}
+  var skip=seen||matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(skip){el.remove();return;}
+  var iris=el.querySelector('.iris');
+  requestAnimationFrame(function(){
+    iris.style.opacity=1;
+    var t0=performance.now(),D=1500;
+    function ease(x){return 1-Math.pow(1-x,3)}
+    function step(t){
+      var p=Math.min((t-t0)/D,1);
+      var s=.12+ease(p)*(Math.max(innerWidth,innerHeight)/80*1.6);
+      iris.style.transform='translate(-50%,-50%) scale('+s+')';
+      if(p<1)requestAnimationFrame(step);
+      else{el.classList.add('gone');try{sessionStorage.setItem('lensSeen','1')}catch(e){}setTimeout(function(){el.remove()},500);}
+    }
+    requestAnimationFrame(step);
+  });
+})();
+</script>
+<header>
+  <div class="wrap hd">
+    <a href="#top" aria-label="BALDAN — на главную"><img class="logo" src="assets/logo.png" alt="BALDAN — Alina Baldan, рилсмейкер"></a>
+    <nav>
+      <a href="#stories">Истории</a>
+      <a href="#menu">Прайс</a>
+      <a href="#approach">Подход</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="cta-mini" href="#contacts">Дата?</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <button class="close" id="mclose">Закрыть</button>
+  <a href="#stories">Истории</a>
+  <a href="#menu">Прайс</a>
+  <a href="#approach">Подход</a>
+  <a href="#faq">Вопросы</a>
+  <a href="#contacts">Контакты</a>
+  <a class="tg" href="https://t.me/alina_baldan" target="_blank" rel="noopener">Написать в Telegram ↗</a>
+</div>
+
+<!-- 2. HERO -->
+<section class="hero" id="top">
+  <div class="wrap cols">
+    <div class="hero-txt">
+      <span class="label">Рилсмейкер · Свадьбы, события и праздники · Петербург и Самара</span>
+      <h1>Свадебный рилсмейкер<span class="script">Alina Baldan</span></h1>
+      <p class="sub">Живой свадебный контент. Каждая история неповторима — давайте сохраним вашу?</p>
+      <p class="promise">Исходники — в день события.<br>Первый готовый ролик — в течение 24 часов.</p>
+      <a class="btn" href="#contacts" id="hero-btn">Забронировать дату ↗</a><br>
+      <!-- СЕЗОННАЯ СТРОКА: менять текст и ссылку раз в сезон -->
+      <a class="season" id="season" href="pro.html">Сейчас снимаю корпоративы и новогодние вечера <span>→ специалистам и организаторам</span></a>
+      <a class="link" href="#stories">Смотреть истории ↓</a>
+    </div>
+    <div class="hero-vid">
+      <div class="frame">
+        <img class="lace" src="assets/lace-corner.webp" alt="" aria-hidden="true">
+        <img class="lace br" src="assets/lace-corner.webp" alt="" aria-hidden="true">
+        <video src="assets/hero-preview.mp4" poster="assets/hero-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"
+               aria-label="Видео со свадебной прогулки — съёмка Alina Baldan"></video>
+        <span class="vf tl"></span><span class="vf tr"></span><span class="vf bl"></span><span class="vf brr"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. STORIES -->
+<section id="stories">
+  <div class="wrap">
+    <span class="label">Портфолио</span>
+    <h2 class="sec">Истории</h2>
+    <div class="filters">
+      <button class="on">Все</button><button>Свадьбы</button><button>Праздники</button><button>Корпоративы</button>
+    </div>
+    <div class="stories">
+      <a class="story" href="#contacts">
+        <div class="ph"><video src="assets/hero-preview.mp4" poster="assets/hero-poster.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+        <figcaption>Свадьба · Петербург</figcaption>
+      </a>
+      <a class="story" href="#contacts">
+        <div class="ph"><img src="assets/review-ilya-galya.jpg" alt="Илья и Галя под прозрачным зонтом у Исаакиевского собора — съёмка Alina Baldan" loading="lazy"></div>
+        <figcaption>Свадьба · Исаакиевская площадь</figcaption>
+      </a>
+      <a class="story" href="#contacts">
+        <div class="ph"><img src="assets/review-dima-vika.jpg" alt="Дима и Вика у деревянной двери старинного дома — съёмка Alina Baldan" loading="lazy"></div>
+        <figcaption>Свадьба · Петербург</figcaption>
+      </a>
+      <a class="story" href="#contacts">
+        <div class="ph"><img src="assets/review-nadya.jpg" alt="Объятия пары с букетом белых калл — съёмка Alina Baldan" loading="lazy"></div>
+        <figcaption>Свадьба · Петербург</figcaption>
+      </a>
+    </div>
+    <a class="link" href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Ещё работы — в Instagram* @alinabaldan ↗</a>
+  </div>
+</section>
+
+<!-- 4. QUOTE -->
+<section class="quote">
+  <div class="wrap">
+    <p>«Свадьба — не самый лучший день вашей жизни, это день, с которого начинается нечто большее»</p>
+    <div class="who">Alina Baldan</div>
+  </div>
+</section>
+
+<!-- 5. APPROACH -->
+<section class="approach" id="approach">
+  <div class="wrap cols">
+    <!-- ПОРТРЕТ АЛИНЫ: положить файл assets/portrait.jpg и вставить сюда
+         <div class="col-l"><img src="assets/portrait.jpg" alt="Алина Baldan — рилсмейкер" style="height:100%;object-fit:cover"></div> -->
+    <div class="col-r">
+      <span class="label">Подход</span>
+      <h2 class="sec">Деликатно, <em style="font-style:normal;color:var(--wine)">без дублей</em></h2>
+      <ul class="points" style="margin-top:36px">
+        <li><span class="n">01</span><p>Меня не заметно — снимаю тихо, не прошу повторять объятия.</p></li>
+        <li><span class="n">02</span><p>Ловлю ваши удачные ракурсы и помогаю, если вы стесняетесь камеры.</p></li>
+        <li><span class="n">03</span><p>Снимаю на iPhone 17 Pro Max со светом и микрофоном — легко и незаметно.</p></li>
+        <li><span class="n">04</span><p>Исходники — в день события. Первый готовый ролик — в течение 24 часов.</p></li>
+      </ul>
+      <p class="bigline">Не нужно ждать год свадебный фильм от видеографа</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. REELS MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-card">
+      <img class="lace-top" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+      <img class="lace-bot" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+      <div class="menu-title"><span class="script">Reels menu</span></div>
+      <div class="mgrp">
+        <h3>Основное</h3>
+        <div class="mrow"><span class="t">Свадебная съёмка</span><span class="d"></span><span class="p">от 7 000 ₽/час</span></div>
+        <div class="mrow"><span class="t">Полный свадебный день, до 10 часов</span><span class="d"></span><span class="p">от 65 000 ₽</span></div>
+        <div class="mrow"><span class="t">Бронь даты</span><span class="d"></span><span class="p">3 000 ₽</span></div>
+      </div>
+      <a class="btn" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D1%88%D0%BB%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81.%20%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B5%3A%20" target="_blank" rel="noopener">Прислать полный прайс в Telegram ↗</a>
+      <p class="mnote" style="margin-top:14px">Полное меню — пакеты, что включено, сезонные условия — пришлю в личку. Или в <a href="https://wa.me/79817532290?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D1%88%D0%BB%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BF%D1%80%D0%B0%D0%B9%D1%81" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">WhatsApp</a>.</p>
+    </div>
+    <div class="important">
+      <h3>Важные моменты</h3>
+      <p>Транспортные расходы — отдельно. Время в дороге входит в тайминг.<br>От 6 часов работы — горячее питание на площадке.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <span class="label">Отзывы</span>
+    <h2 class="sec">Слова после праздника</h2>
+    <div class="revs" style="margin-top:40px">
+      <figure class="rev">
+        <q>Ты смогла захватить самые трогательные моменты нашей свадьбы, я уже две недели пересматриваю видео и плачу. Рилс с медиками — просто огонь!</q>
+        <figcaption class="who">Илья и Галя</figcaption>
+        <img src="assets/review-ilya-galya.jpg" alt="Илья и Галя под прозрачным зонтом у Исаакиевского собора" loading="lazy">
+      </figure>
+      <figure class="rev">
+        <q>Оперативность, креативность, индивидуальный подход! Ты настоящий профессионал, которого на празднике не заметно.</q>
+        <figcaption class="who">Анатолий и Анастасия</figcaption>
+      </figure>
+      <figure class="rev">
+        <q>Спасибо, что смогла показать нас такими живыми, красивыми и любящими. Что ни видео, то шедевр!</q>
+        <figcaption class="who">Дима и Вика</figcaption>
+        <img src="assets/review-dima-vika.jpg" alt="Дима и Вика у деревянной двери старинного дома" loading="lazy">
+      </figure>
+      <figure class="rev">
+        <q>Ты запечатлела именно мои удачные ракурсы и моменты — у меня нет ни одного кадра, который я могла бы раскритиковать.</q>
+        <figcaption class="who">Надя</figcaption>
+        <img src="assets/review-nadya.jpg" alt="Объятия пары с букетом белых калл" loading="lazy">
+      </figure>
+      <figure class="rev">
+        <q>Все видео просто невероятные — при просмотре сразу вспоминаю атмосферу нашей свадьбы.</q>
+        <figcaption class="who">Влада</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8. BUSINESS -->
+<section class="biz" id="business">
+  <div class="wrap">
+    <span class="label">Для компаний</span>
+    <h2 class="sec">Ваш вечер — <em style="font-style:normal;color:var(--wine)">в ленте</em> на следующее утро</h2>
+    <div class="cols" style="margin-top:44px">
+      <div>
+        <ul class="bizlist">
+          <li>Вход и декор до прихода гостей</li>
+          <li>Приветствие и атмосфера вечера</li>
+          <li>Тосты и выступления руководителей с титрами</li>
+          <li>Награждение и команда</li>
+          <li>Танцпол и финал вечера</li>
+          <li>Итоговый рекап-ролик 30–60 секунд</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bizlist">
+          <li>Reels с титрами и в фирменных цветах</li>
+          <li>Ролики для LinkedIn, Telegram и VK</li>
+          <li>Все исходники в день события</li>
+          <li>Договор, чек самозанятой</li>
+          <li>Конфиденциальность и NDA по запросу</li>
+          <li>Консультация по таймингу вечера</li>
+        </ul>
+        <a class="link" href="#contacts" data-type="Корпоратив">Обсудить корпоратив ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap cols">
+    <div>
+      <span class="label">Вопросы</span>
+      <h2 class="sec">Перед съёмкой</h2>
+    </div>
+    <div>
+      <details class="fitem"><summary>Зачем рилсмейкер, если есть видеограф?<span class="pl">+</span></summary><p class="fa">Видеограф снимает фильм, я собираю короткие вертикальные истории, которые можно смотреть и выкладывать уже на следующий день.</p></details>
+      <details class="fitem"><summary>Сколько роликов мы получим?<span class="pl">+</span></summary><p class="fa">Зависит от часов: 3 часа — 3 ролика, 8–10 часов — до 10 роликов.</p></details>
+      <details class="fitem"><summary>Когда будет готов материал?<span class="pl">+</span></summary><p class="fa">Исходники — в день события (на следующее утро, если материала много). Первый готовый ролик — в течение 24 часов, остальные — до недели. Срочно — за 2 дня, +15 000 ₽.</p></details>
+      <details class="fitem"><summary>Отдаёте исходники?<span class="pl">+</span></summary><p class="fa">Да, все исходники в день события, хранение — 1 месяц.</p></details>
+      <details class="fitem"><summary>Можно внести правки?<span class="pl">+</span></summary><p class="fa">Да, один круг правок в течение недели.</p></details>
+      <details class="fitem"><summary>Делаете фото?<span class="pl">+</span></summary><p class="fa">По запросу — 2–3 фотокарточки на следующее утро, без доплаты.</p></details>
+      <details class="fitem"><summary>Как выбирается музыка?<span class="pl">+</span></summary><p class="fa">Пришлите памятные треки или доверьтесь мне. Для роликов компании — треки из лицензированной библиотеки, чтобы соцсети не заглушали звук.</p></details>
+      <details class="fitem"><summary>Можно ли не публиковать наше видео?<span class="pl">+</span></summary><p class="fa">Да. Использование материалов в портфолио прописано в договоре — скажите до съёмки, зафиксируем конфиденциальность (по договорённости, от +30%).</p></details>
+      <details class="fitem"><summary>Работаете с компаниями?<span class="pl">+</span></summary><p class="fa">Да, по договору, выдаю чек самозанятой. Условия для юридических лиц обсуждаем.</p></details>
+      <details class="fitem"><summary>Как забронировать дату?<span class="pl">+</span></summary><p class="fa">Бронь — 3 000 ₽, по договору. В сезон — заранее.</p></details>
+      <details class="fitem"><summary>Выезжаете в другие города?<span class="pl">+</span></summary><p class="fa">Петербург и Самара — регулярно. Любой город и страна — по запросу, дорога оплачивается отдельно.</p></details>
+      <details class="fitem"><summary>Что если мы стесняемся камеры?<span class="pl">+</span></summary><p class="fa">Начнём с привычных движений и разговора — подскажу, куда встать и как поймать свет.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10. OTHER -->
+<section class="other">
+  <div class="wrap">
+    <span class="label">Другие направления</span>
+    <h2 class="sec">Брендам и будущим авторам</h2>
+    <p class="lead" style="margin-top:22px;max-width:640px">Также снимаю дни рождения, юбилеи, гендер-пати, выписки и любые события, в основе которых — любовь.</p>
+    <div class="other-cards">
+      <div class="ocard">
+        <h3>Съёмка для брендов и заведений</h3>
+        <p>Фактура продукта, руки мастера, атмосфера места, съёмка корпоратива, видео для соцсетей компании. А для организаторов, ведущих и мастеров — контент для портфолио: закулисье и работа в кадре.</p>
+        <a class="link" href="#contacts" data-type="Бренд" style="margin-top:16px">Запросить условия ↗</a>
+        <a class="link" href="pro.html" style="margin-top:14px">Специалистам и организаторам — контент для витрины ↗</a>
+      </div>
+      <div class="ocard">
+        <h3>Wedding Content Lab</h3>
+        <p>Курс для начинающих свадебных рилсмейкеров, онлайн и очно в Петербурге. Сейчас в разработке — напишите, расскажу о программе первой.</p>
+        <a class="link" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A0%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%20Wedding%20Content%20Lab" target="_blank" rel="noopener" style="margin-top:16px">Узнать программу ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. CONTACTS -->
+<section class="contacts" id="contacts">
+  <img class="lace-edge" src="assets/lace-edge.webp" alt="" aria-hidden="true">
+  <div class="wrap inner">
+    <span class="label">Контакты</span>
+    <h2 class="sec">Забронируем вашу дату?</h2>
+    <p class="lead" style="margin-top:22px;max-width:560px">Напишите дату и пару слов о событии — скажу, свободна ли дата, и помогу выбрать формат. Отвечаю в течение нескольких часов.</p>
+    <a class="tg-big" href="https://t.me/alina_baldan?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D0%BD%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%2C%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BB%D0%B8%20%D0%B4%D0%B0%D1%82%D0%B0%20%E2%80%94" target="_blank" rel="noopener">Написать в Telegram ↗</a>
+    <p class="small-links">
+      <a href="https://wa.me/79817532290" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Instagram*</a>
+    </p>
+    <form id="inq" novalidate>
+      <div class="fld"><label for="f-name">Имя</label><input id="f-name" type="text" autocomplete="name"></div>
+      <div class="fld"><label for="f-tg">Telegram или телефон</label><input id="f-tg" type="text" autocomplete="tel"></div>
+      <div class="fld"><label for="f-date">Дата и город</label><input id="f-date" type="text" placeholder="Например, 12 июня, Петербург"></div>
+      <div class="fld"><label>Тип события</label>
+        <div class="types" id="types">
+          <button type="button" class="on">Свадьба</button><button type="button">Праздник</button><button type="button">Корпоратив</button><button type="button">Бренд</button><button type="button">Курс</button>
+        </div>
+      </div>
+      <div class="fld"><label for="f-msg">Пара слов о дне (необязательно)</label><textarea id="f-msg" rows="3"></textarea></div>
+      <label class="consent"><input type="checkbox" id="f-ok"><span>Соглашаюсь с <a href="privacy.html" style="color:inherit;border-bottom:1px solid var(--line)">политикой конфиденциальности</a></span></label>
+      <p class="form-err" id="ferr">Заполните имя и контакт и отметьте согласие — так я смогу вам ответить.</p>
+      <button class="btn" type="submit">Написать Алине в Telegram ↗</button>
+      <p class="form-note">Откроется чат с готовым сообщением — останется нажать «Отправить».</p>
+    </form>
+  </div>
+</section>
+
+<!-- 12. FOOTER -->
+<footer>
+  <div class="wrap cols">
+    <img src="assets/logo.png" alt="BALDAN">
+    <div>
+      <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a> ·
+      <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">@alinabaldan</a> ·
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+    <p class="fn">*Instagram принадлежит Meta, признанной экстремистской и запрещённой в РФ.</p>
+  </div>
+</footer>
+
+<!-- 13. FLOATING CTA -->
+<div class="float-cta" id="float"><a href="#contacts">Свободна ли моя дата?</a></div>
+
+<script>
+if(location.search.includes('flat'))document.querySelector('.hero').style.minHeight='auto';
+// corp variant ?e=corp
+if(location.search.includes('e=corp')){
+  document.body.classList.add('corp');
+  document.title='Рилсмейкер на корпоратив — Alina Baldan, Петербург и Самара';
+  document.querySelector('.hero .label').textContent='Рилсмейкер · Корпоративы · Петербург и Самара';
+  document.querySelector('.hero h1').innerHTML='Рилсмейкер<span class="script">на ваш корпоратив</span>';
+  document.querySelector('.hero .sub').textContent='Живой контент с новогоднего вечера, юбилея компании или запуска — вертикальные ролики для LinkedIn и Telegram. Первый готовый ролик — в течение 24 часов.';
+  document.getElementById('hero-btn').textContent='Обсудить корпоратив ↗';
+  document.getElementById('season').innerHTML='Декабрьские даты разбирают быстро — напишите заранее <span>→</span>';
+  document.getElementById('season').href='#contacts';
+  const st=document.getElementById('stories'),bz=document.getElementById('business');
+  st.parentNode.insertBefore(bz,st.nextSibling);
+}
+
+// mobile menu
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>mnav.classList.add('open');
+document.getElementById('mclose').onclick=()=>mnav.classList.remove('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+// floating cta: hide near contacts
+const fl=document.getElementById('float'), ct=document.getElementById('contacts');
+new IntersectionObserver(e=>{fl.style.display=e[0].isIntersecting?'none':''},{threshold:.05}).observe(ct);
+// type pills
+let curType=location.search.includes('e=corp')?'Корпоратив':'Свадьба';
+document.querySelectorAll('#types button').forEach(b=>{
+  b.classList.toggle('on',b.textContent===curType);
+  b.onclick=()=>{
+    document.querySelectorAll('#types button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');curType=b.textContent;
+  };
+});
+// data-type links preselect
+document.querySelectorAll('[data-type]').forEach(a=>a.addEventListener('click',()=>{
+  const t=a.dataset.type;
+  document.querySelectorAll('#types button').forEach(b=>{
+    b.classList.toggle('on',b.textContent===t);if(b.textContent===t)curType=t;
+  });
+}));
+// story filter (visual only until real sets exist)
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+});
+// gentle reveal on scroll
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const els=document.querySelectorAll('h2.sec,.label,.lead,.points li,.rev,.fitem,.ocard,.prof,.pack,.steps li,.menu-card,.bizlist li,form,.quote p,.hero-txt>*');
+  els.forEach(el=>el.classList.add('rv'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+}
+// form -> telegram
+document.getElementById('inq').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const ok=document.getElementById('f-ok').checked;
+  if(!v('f-name')||!v('f-tg')||!ok){document.getElementById('ferr').style.display='block';return;}
+  const msg=`Здравствуйте, Алина! Меня зовут ${v('f-name')}.\nСобытие: ${curType}${v('f-date')?', '+v('f-date'):''}.\nМой контакт: ${v('f-tg')}.${v('f-msg')?'\n'+v('f-msg'):''}`;
+  window.open('https://t.me/alina_baldan?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body>
+</html>
