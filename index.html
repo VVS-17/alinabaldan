@@ -454,20 +454,20 @@ h2.sec{font-size:44px}
     </div>
     <div class="stories">
       <a class="story" href="#contacts">
-        <div class="ph"><video src="assets/hero-preview.mp4" poster="assets/hero-poster.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
-        <figcaption>Свадьба · Петербург</figcaption>
+        <div class="ph"><video src="assets/story-city.mp4" poster="assets/story-city.jpg" muted loop playsinline preload="none" aria-label="Фрагмент свадьбы: набережная и арка"></video></div>
+        <figcaption>Свадьба · набережная и арка</figcaption>
       </a>
       <a class="story" href="#contacts">
-        <div class="ph"><img src="assets/review-ilya-galya.jpg" alt="Илья и Галя под прозрачным зонтом у Исаакиевского собора — съёмка Alina Baldan" loading="lazy"></div>
-        <figcaption>Свадьба · Исаакиевская площадь</figcaption>
+        <div class="ph"><video src="assets/story-elegant.mp4" poster="assets/story-elegant.jpg" muted loop playsinline preload="none" aria-label="Фрагмент свадьбы: лестница и золотой свет"></video></div>
+        <figcaption>Свадьба · парадная лестница</figcaption>
       </a>
       <a class="story" href="#contacts">
-        <div class="ph"><img src="assets/review-dima-vika.jpg" alt="Дима и Вика у деревянной двери старинного дома — съёмка Alina Baldan" loading="lazy"></div>
-        <figcaption>Свадьба · Петербург</figcaption>
+        <div class="ph"><video src="assets/story-morning.mp4" poster="assets/story-morning.jpg" muted loop playsinline preload="none" aria-label="Фрагмент свадьбы: утро в интерьере"></video></div>
+        <figcaption>Свадьба · утро в интерьере</figcaption>
       </a>
       <a class="story" href="#contacts">
-        <div class="ph"><img src="assets/review-nadya.jpg" alt="Объятия пары с букетом белых калл — съёмка Alina Baldan" loading="lazy"></div>
-        <figcaption>Свадьба · Петербург</figcaption>
+        <div class="ph"><video src="assets/story-pool.mp4" poster="assets/story-pool.jpg" muted loop playsinline preload="none" aria-label="Фрагмент свадьбы: вечер у бассейна"></video></div>
+        <figcaption>Свадьба · город и бассейн</figcaption>
       </a>
     </div>
     <a class="link" href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">Ещё работы — в Instagram* @alinabaldan ↗</a>
@@ -717,6 +717,17 @@ document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');
 });
+// story videos: play only when visible
+(function(){
+  const vids=document.querySelectorAll('.story video');
+  if(!('IntersectionObserver' in window)){vids.forEach(v=>v.play().catch(()=>{}));return;}
+  const vo=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';v.play().catch(()=>{});}
+    else v.pause();
+  }),{threshold:.2,rootMargin:'100px'});
+  vids.forEach(v=>vo.observe(v));
+})();
 // gentle reveal on scroll
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
   const els=document.querySelectorAll('h2.sec,.label,.lead,.points li,.rev,.fitem,.ocard,.prof,.pack,.steps li,.menu-card,.bizlist li,form,.quote p,.hero-txt>*');
