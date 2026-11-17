@@ -214,6 +214,13 @@ body.corp .hero .season span{color:#e5b8bc}
 /* ---------- approach ---------- */
 .approach .cols{display:flex;flex-direction:column;gap:44px}
 .approach .col-l img,.learn .imgcol img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.learn .aud{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 30px}
+.learn .aud span{font-size:13px;letter-spacing:.08em;border:1px solid var(--line);padding:8px 14px;color:var(--mute)}
+.learn .fmts{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.learn .fmt{border:1px solid var(--line);padding:20px 18px;flex:1;min-width:230px}
+.learn .fmt .ft{font-family:'Viaoda Libre',serif;font-size:22px;line-height:1.15}
+.learn .fmt p{font-size:14px;color:var(--mute);margin-top:8px;line-height:1.5}
+.learn .res{display:block;font-size:13px;color:var(--wine);margin-top:6px;letter-spacing:.04em}
 @media(min-width:900px){
   .approach .col-l{flex:0 0 400px}
   .learn .imgcol{flex:0 0 400px}
@@ -695,14 +702,34 @@ h2.sec{font-size:44px}
     <div class="txt">
       <span class="label">Обучение</span>
       <h2 class="sec">Wedding Content Lab</h2>
-      <p class="lead" style="margin-top:22px;max-width:560px">Курс для начинающих свадебных рилсмейкеров — от первого кадра до первых клиентов. Онлайн и очно в Петербурге.</p>
-      <ul class="points" style="margin-top:36px">
-        <li><span class="n">01</span><p>Съёмка на iPhone: свет, ракурсы, движение камеры.</p></li>
-        <li><span class="n">02</span><p>Монтаж Reels: ритм, титры, музыка, обложки.</p></li>
-        <li><span class="n">03</span><p>Работа с парой в день съёмки: как не мешать и ловить моменты.</p></li>
-        <li><span class="n">04</span><p>Упаковка и продажи: портфолио, прайс, первые заказы.</p></li>
+      <p class="lead" style="margin-top:22px;max-width:560px">Курс свадебного рилсмейкера — от первого кадра до первых заказов. Достаточно iPhone: дорогая техника не нужна.</p>
+      <div class="aud">
+        <span>новички с нуля</span><span>фотографы и видеографы</span><span>ведущие и организаторы</span>
+      </div>
+      <div class="fmts">
+        <div class="fmt">
+          <div class="ft">Онлайн-курс</div>
+          <p>Видеоуроки, домашние задания с разбором, чат поддержки — в своём темпе.</p>
+        </div>
+        <div class="fmt">
+          <div class="ft">Практика на свадьбе</div>
+          <p>Выезд со мной на реальную свадьбу в Петербурге: уйдёте с готовыми роликами для портфолио.</p>
+        </div>
+      </div>
+      <ul class="points">
+        <li><span class="n">01</span><p>Съёмка на iPhone: свет, ракурсы, движение камеры.<span class="res">Результат — первый уверенный ролик.</span></p></li>
+        <li><span class="n">02</span><p>Монтаж Reels: ритм, титры, музыка, обложки.<span class="res">Результат — три готовых ролика в портфолио.</span></p></li>
+        <li><span class="n">03</span><p>День съёмки: как не мешать паре и ловить моменты.<span class="res">Результат — выезд на реальную свадьбу со мной.</span></p></li>
+        <li><span class="n">04</span><p>Упаковка и продажи: портфолио, прайс, переговоры.<span class="res">Результат — первый оплаченный заказ.</span></p></li>
       </ul>
-      <p class="bigline">Программа в разработке — напишите, расскажу первой</p>
+      <p class="mnote" style="margin:34px 0 10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)">Унесёте с собой</p>
+      <ul class="bizlist" style="margin-top:0;border-top:none">
+        <li>Шаблон договора и правила брони</li>
+        <li>Чек-лист съёмочного дня</li>
+        <li>Гайд: музыка без блокировок и выгрузка без «мыла»</li>
+        <li>Моя таблица прайса — считать свой</li>
+      </ul>
+      <p class="bigline" style="margin-top:34px">Первый поток — по цене запуска, мест 10</p>
       <a class="link" href="#contacts" data-type="Курс" style="margin-top:26px">Хочу в список ожидания ↗</a>
     </div>
     <div class="imgcol"><img src="assets/at-work.jpg" alt="Алина Балдан снимает свадьбу на телефон — закулисье работы" loading="lazy"></div>
