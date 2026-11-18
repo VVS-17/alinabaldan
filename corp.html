@@ -51,6 +51,17 @@ body{
   font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
+/* ---------- sky (скролл = один день свадьбы) ---------- */
+.sky{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.8s ease;pointer-events:none}
+.sky.on{opacity:1}
+.sky-0{background:linear-gradient(180deg,#f8ede7 0%,#f6eee9 55%,#f2e8e2 100%)}
+.sky-1{background:linear-gradient(180deg,#f5f0ef 0%,#f3ebe6 100%)}
+.sky-2{background:linear-gradient(180deg,#f7ebdb 0%,#f1dbc6 50%,#ecd2ba 100%)}
+.sky-3{background:linear-gradient(180deg,#efd9d3 0%,#e7c6bf 55%,#dfb2ac 100%)}
+.sky-4{background:radial-gradient(130% 90% at 50% 0%,#3a1419 0%,#241014 55%,#15090b 100%)}
+.scene{display:block;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);opacity:.8;margin-bottom:16px}
+.scene::before{content:'· '}
+.scene em{font-style:normal;opacity:.55}
 img,video{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,.serif{font-family:'Viaoda Libre',serif;font-weight:400;letter-spacing:-.015em;line-height:1.05}
@@ -398,6 +409,30 @@ footer a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--li
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   box-shadow:0 6px 24px rgba(42,14,18,.25);
 }
+.contacts .sec,.contacts .lead,.contacts .label,.contacts .tg-big,.fld input,.fld textarea,.fld label,.contacts .small-links,.contacts .small-links a,.form-note,.form-trust,.consent,.types button,footer{transition:color 1.1s ease,border-color 1.1s ease,background-color 1.1s ease}
+/* ---------- ночь: контакты и футер ---------- */
+body[data-sky="night"] .contacts{color:var(--linen)}
+body[data-sky="night"] .contacts .sec,
+body[data-sky="night"] .contacts .lead{color:var(--linen)}
+body[data-sky="night"] .contacts .label{color:#c0656e}
+body[data-sky="night"] .contacts .lace-edge{opacity:.22}
+body[data-sky="night"] .contacts .tg-big{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .contacts .small-links,
+body[data-sky="night"] .contacts .small-links a{color:#b3a3a0}
+body[data-sky="night"] .fld input,
+body[data-sky="night"] .fld textarea{color:var(--linen);border-bottom-color:rgba(245,240,239,.3)}
+body[data-sky="night"] .fld label{color:#b3a3a0}
+body[data-sky="night"] .types button{color:#c0656e;border-color:#c0656e}
+body[data-sky="night"] .types button.on{background:#c0656e;color:#1c0d10}
+body[data-sky="night"] .consent,
+body[data-sky="night"] .form-note,
+body[data-sky="night"] .form-trust{color:#b3a3a0}
+body[data-sky="night"] .form-err{color:#e08a93}
+body[data-sky="night"] footer{color:#b3a3a0;border-top-color:rgba(245,240,239,.18)}
+body[data-sky="night"] footer a{color:#b3a3a0;border-bottom-color:rgba(245,240,239,.2)}
+body[data-sky="night"] .scene{color:#c0656e}
+@media(prefers-reduced-motion:reduce){.sky{transition:none}}
+
 /* ---------- desktop ---------- */
 @media(min-width:900px){
   body{font-size:17px}
@@ -498,7 +533,7 @@ h2.sec{font-size:44px}
 </style>
 </head>
 <body>
-<div id="lens"><div class="iris"></div></div>
+<div class="sky sky-3 on"></div><div class="sky sky-0"></div><div class="sky sky-1"></div><div class="sky sky-2"></div><div class="sky sky-4"></div><div id="lens"><div class="iris"></div></div>
 <div id="splay" aria-hidden="true">
   <div class="sp-wrap">
     <div class="sp-bars"></div>
@@ -571,10 +606,11 @@ h2.sec{font-size:44px}
 </div>
 
 <!-- 2. HERO -->
-<section class="hero" id="top">
+<section class="hero" id="top" data-sky="evening">
   <div class="wrap cols" style="justify-content:center;text-align:center">
     <div class="hero-txt" style="max-width:760px;margin:0 auto">
-      <span class="label">Рилсмейкер · Корпоративы и бренды · Петербург и Самара</span>
+      <span class="scene">вечер — ваш корпоратив</span>
+    <span class="label">Рилсмейкер · Корпоративы и бренды · Петербург и Самара</span>
       <h1>Рилсмейкер<span class="script">на ваш корпоратив</span></h1>
       <p class="sub">Живой контент с вечера компании: вход, тосты, награждение, танцпол. Вертикальные ролики для LinkedIn, Telegram и VK — первый готов уже на следующее утро.</p>
       <p class="promise" style="border-left:none;padding-left:0">Исходники — в день события.<br>Первый ролик — в течение 24 часов.</p>
@@ -584,8 +620,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 2.5 PORTFOLIO -->
-<section id="stories">
+<section id="stories" data-sky="evening">
   <div class="wrap">
+    <span class="scene">вечер — как это выглядит</span>
     <span class="label">Портфолио</span>
     <h2 class="sec">Фрагменты событий</h2>
     <div class="stories" style="margin-top:34px">
@@ -607,8 +644,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 3. WHAT -->
-<section>
+<section data-sky="evening">
   <div class="wrap">
+    <span class="scene">вечер — событие в ленте</span>
     <span class="label">Что снимаю</span>
     <h2 class="sec">Ваш вечер — <em style="font-style:normal;color:var(--wine)">в ленте</em> на следующее утро</h2>
     <div class="cols" style="margin-top:44px">
@@ -637,8 +675,9 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 4. PRICE -->
-<section id="menu">
+<section id="menu" data-sky="evening">
   <div class="wrap">
+    <span class="scene" style="text-align:center">вечер — момент выбора</span>
     <div class="menu-card">
       <img class="lace-top" src="assets/lace-edge.webp" alt="" aria-hidden="true">
       <img class="lace-bot" src="assets/lace-edge.webp" alt="" aria-hidden="true">
@@ -660,10 +699,11 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 5. FAQ -->
-<section class="faq" id="faq">
+<section class="faq" id="faq" data-sky="evening">
   <div class="wrap cols">
     <div>
-      <span class="label">Вопросы</span>
+      <span class="scene">вечер — о деталях</span>
+    <span class="label">Вопросы</span>
       <h2 class="sec">Для компаний</h2>
     </div>
     <div>
@@ -678,9 +718,10 @@ h2.sec{font-size:44px}
 </section>
 
 <!-- 6. CONTACTS -->
-<section class="contacts" id="contacts">
+<section class="contacts" id="contacts" data-sky="night">
   <img class="lace-edge" src="assets/lace-edge.webp" alt="" aria-hidden="true">
   <div class="wrap inner">
+    <span class="scene">ночь — обсудим ваш вечер</span>
     <span class="label">Контакты</span>
     <h2 class="sec">Обсудим ваш корпоратив?</h2>
     <p class="lead" style="margin-top:22px;max-width:560px">Расскажите о событии и площадке — пришлю смету и предложу формат. Отвечаю в течение пары часов.</p>
@@ -705,7 +746,7 @@ h2.sec{font-size:44px}
 
 <footer>
   <div class="wrap cols">
-    <img src="assets/logo.png" alt="BALDAN">
+    <img src="assets/logo-light.png" alt="BALDAN">
     <div>
       <a href="https://t.me/alina_baldan" target="_blank" rel="noopener">Telegram</a> ·
       <a href="https://www.instagram.com/alinabaldan/" target="_blank" rel="noopener">@alinabaldan</a> ·
@@ -730,6 +771,37 @@ const hd=document.querySelector('header');
 const onScroll=()=>hd.classList.toggle('scrolled',window.scrollY>30);
 onScroll();addEventListener('scroll',onScroll,{passive:true});
 
+
+// sky: скролл = один день свадьбы (IntersectionObserver — лёгкий для телефона)
+(function(){
+  const skyEls=[...document.querySelectorAll('.sky')];
+  if(!skyEls.length)return;
+  const map={morning:0,day:1,golden:2,evening:3,night:4};
+  let cur=-1;
+  function set(name){
+    const idx=map[name]||0;
+    if(idx===cur)return;
+    cur=idx;
+    skyEls.forEach((e,i)=>e.classList.toggle('on',i===idx));
+    document.body.dataset.sky=name;
+  }
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting)set(e.target.dataset.sky)});
+    },{rootMargin:'-48% 0px -48% 0px',threshold:0});
+    document.querySelectorAll('[data-sky]').forEach(s=>io.observe(s));
+  }else{
+    const secs=[...document.querySelectorAll('[data-sky]')];
+    function setSky(){
+      const mid=innerHeight*0.5;
+      let name='morning';
+      for(const s of secs){if(s.getBoundingClientRect().top<=mid)name=s.dataset.sky;}
+      set(name);
+    }
+    addEventListener('scroll',()=>requestAnimationFrame(setSky),{passive:true});
+    setSky();
+  }
+})();
 
 // mobile menu
 const mnav=document.getElementById('mnav');
